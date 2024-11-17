@@ -198,6 +198,13 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
             if self.appear(self.I_REWARD_GOLD, threshold=0.8):
                 win = True
                 break
+
+            # 当战斗已经结束 退出条件被遮盖时 调用子类的退出判断
+            if self.appear(self.O_MASK_CLICK_CONTINUE, threshold=0.8):
+                win, is_break = self.exit_logic()
+                if is_break:
+                    break
+
             # 如果开启战斗过程随机滑动
             if random_click_swipt_enable:
                 self.random_click_swipt()
@@ -524,6 +531,11 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
                 break
             if self.appear_then_click(self.I_BUFF, interval=1):
                 continue
+
+    # 给子类重写的退出逻辑
+    def exit_logic(self) -> tuple:
+        return False, True
+
 
     def close_yyb_popup_ads(self) -> bool:
         self.wait_until_appear(self.I_YYB_POPUP_ADS, skip_first_screenshot=True, wait_time=1)

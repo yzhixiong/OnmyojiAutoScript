@@ -9,6 +9,15 @@
     "description": "准备"
   },
   {
+    "itemName": "mask_click_continue",
+    "roiFront": "539,660,195,59",
+    "roiBack": "539,660,195,59",
+    "mode": "Single",
+    "method": "Default",
+    "keyword": "点击屏幕继续",
+    "description": "遮层下方的点击屏幕继续"
+  },
+  {
     "itemName": "preset",
     "roiFront": "20,620,60,80",
     "roiBack":  "20,620,60,80",

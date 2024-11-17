@@ -60,11 +60,11 @@ class GeneralBattleAssets:
 	C_GREEN_LEFT_5 = RuleClick(roi_front=(1059,416,85,145), roi_back=(1059,416,85,145), name="green_left_5")
 	# 绿标阴阳师 
 	C_GREEN_MAIN = RuleClick(roi_front=(590,454,88,178), roi_back=(590,454,88,178), name="green_main")
-	# 绿标点击 区域,默认为全屏，需要在代码中更新其区域 
+	# 绿标点击 区域,默认为全屏，需要在代码中更新其区域
 	C_GREEN_MARK_AREA = RuleClick(roi_front=(0,0,1280,720), roi_back=(0,0,1280,720), name="green_mark_area")
-	# 战斗的时候有一定的概率随机点击 
+	# 战斗的时候有一定的概率随机点击
 	C_RANDOM_CLICK = RuleClick(roi_front=(104,79,1050,507), roi_back=(255,65,100,100), name="random_click")
-	# 关闭应用宝弹窗广告 
+	# 关闭应用宝弹窗广告
 	C_YYB_POPUP_ADS_CLOSE = RuleClick(roi_front=(869,392,101,164), roi_back=(869,392,101,164), name="yyb_popup_ads_close")
 
 
@@ -79,9 +79,9 @@ class GeneralBattleAssets:
 	I_WIN = RuleImage(roi_front=(385,47,100,100), roi_back=(296,33,414,224), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_win.png")
 	# 准备但是界面还未加载这个时候是黑色的 
 	I_PREPARE_DARK = RuleImage(roi_front=(1131,538,100,100), roi_back=(1131,538,100,100), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_prepare_dark.png")
-	# 无蒙层失败 
+	# 无蒙层失败
 	I_FALSE = RuleImage(roi_front=(413,124,95,95), roi_back=(351,58,197,207), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_false.png")
-	# 有蒙层失败 
+	# 有蒙层失败
 	I_FALSE2 = RuleImage(roi_front=(413,124,95,95), roi_back=(351,58,197,207), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_false.png")
 	# 确认预设的队伍 
 	I_PRESET_ENSURE = RuleImage(roi_front=(352,643,141,50), roi_back=(305,625,236,83), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_preset_ensure.png")
@@ -119,15 +119,15 @@ class GeneralBattleAssets:
 	I_PRESENT_LESS_THAN_5 = RuleImage(roi_front=(222,648,418,43), roi_back=(222,648,418,43), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_present_less_than_5.png")
 	# 封魔的金币 
 	I_DE_GOLD = RuleImage(roi_front=(61,52,30,25), roi_back=(45,33,65,64), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_de_gold.png")
-	# 绿标 
+	# 绿标
 	I_GREEN_MARKER = RuleImage(roi_front=(0,0,1280,720), roi_back=(0,0,1280,720), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_green_marker.png")
-	# 绿标-左上角部分 
+	# 绿标-左上角部分
 	I_GREEN_MARKER_LEFT_TOP = RuleImage(roi_front=(0,0,1280,720), roi_back=(0,0,1280,720), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_green_marker_left_top.png")
-	# 绿标-下半部分 
+	# 绿标-下半部分
 	I_GREEN_MARKER_BOTTOM = RuleImage(roi_front=(0,0,1280,720), roi_back=(0,0,1280,720), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_green_marker_bottom.png")
-	# 新版本的预设图案带数字 
+	# 新版本的预设图案带数字
 	I_PRESET_WIT_NUMBER = RuleImage(roi_front=(40,655,37,37), roi_back=(9,636,100,74), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_preset_wit_number.png")
-	# 应用宝弹窗广告 
+	# 应用宝弹窗广告
 	I_YYB_POPUP_ADS = RuleImage(roi_front=(63,203,40,36), roi_back=(63,203,40,36), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_yyb_popup_ads.png")
 
 
@@ -139,7 +139,9 @@ class GeneralBattleAssets:
 	# Ocr Rule Assets
 	# 准备 
 	O_BATTLE_PREPARE = RuleOcr(roi=(1122,546,92,51), area=(1122,546,92,51), mode="Single", method="Default", keyword="准备", name="battle_prepare")
-	# 预设,部分场景预设按钮上的文字为'预设'+数字,导致点击preset失败 
+	# 遮层下方的点击屏幕继续
+	O_MASK_CLICK_CONTINUE = RuleOcr(roi=(539,660,195,59), area=(539,660,195,59), mode="Single", method="Default", keyword="点击屏幕继续", name="mask_click_continue")
+	# 预设,部分场景预设按钮上的文字为'预设'+数字,导致点击preset失败
 	O_PRESET = RuleOcr(roi=(20,620,60,80), area=(20,620,60,80), mode="Single", method="Default", keyword="预", name="preset")
 
 
