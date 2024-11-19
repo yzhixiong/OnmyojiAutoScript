@@ -263,7 +263,7 @@ class ScriptTask(WQExplore, SecretScriptTask, WantedQuestsAssets):
             layer_limit = {
                 # 低层不限制
                 # "壹", "贰", "叁", "肆", "伍", "陆",
-                "柒", "捌", "玖", "拾"
+                "捌", "玖", "拾"
             }
             result = [-1, '', -1, GOTO_BUTTON[index], self.challenge]
             type_wq = OCR_WQ_TYPE[index].ocr(self.device.image)
@@ -276,7 +276,7 @@ class ScriptTask(WQExplore, SecretScriptTask, WantedQuestsAssets):
             wq_destination = match.group(1)
             wq_number = int(match.group(2))
             # 跳过高层秘闻
-            if wq_destination[-1] in layer_limit:
+            if wq_destination[-1] in layer_limit or wq_destination[-2:] == '番外':
                 logger.warning('This secret layer is too high')
                 return None
             result[1] = wq_destination
