@@ -1,6 +1,7 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
+import random
 import time
 from cached_property import cached_property
 from datetime import datetime
@@ -19,6 +20,7 @@ from tasks.Component.GeneralBattle.config_general_battle import GeneralBattleCon
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.Component.GeneralBuff.config_buff import BuffClass
 from tasks.WeeklyTrifles.assets import WeeklyTriflesAssets
+
 
 class ScriptTask(GameUi, GeneralBattle, SwitchSoul, SecretAssets):
     lay_list = ['壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖', '拾']
@@ -52,6 +54,46 @@ class ScriptTask(GameUi, GeneralBattle, SwitchSoul, SecretAssets):
         self.ui_get_current_page()
         self.ui_goto(page_secret_zones)
 
+        self.screenshot()
+        if self.appear(self.I_SE_PLACEMENT_OUTSIDE):
+            self.run_week_secret(con)
+        else:
+            while 1:
+                self.run_normal_secret(con)
+                self.wait_until_appear(self.I_N_BOOS_QUIT)
+                self.ui_click_until_disappear(self.I_N_BOOS_QUIT, interval=1)
+                self.screenshot()
+                self.wait_until_appear(self.I_SE_ENTER)
+                # 连打壹层的秘闻
+                roi = None
+                if self.appear(self.I_N_LAYER_ONE):
+                    roi = self.I_N_LAYER_ONE.roi_front
+                elif self.appear(self.I_N_LAYER_ONE_2):
+                    roi = self.I_N_LAYER_ONE_2.roi_front
+                if roi:
+                    self.device.click(x=roi[0] + random.randint(-100, -10), y=roi[1] + random.randint(-30, 0))
+                else:
+                    break
+
+        self.ui_click(self.I_UI_BACK_BLUE, self.I_CHECK_MAIN)
+        self.ui_get_current_page()
+        self.ui_goto(page_main)
+        if con.secret_gold_50 or con.secret_gold_100:
+            self.open_buff()
+            if con.secret_gold_50:
+                self.gold_50(False)
+            if con.secret_gold_100:
+                self.gold_100(False)
+            self.close_buff()
+        self.set_next_run(task='Secret', success=True, finish=True)
+        raise TaskEnd('Secret')
+
+    def run_week_secret(self, con):
+        """
+        周秘闻
+        自动寻找挑战的层数并且选定 , 找不到会向下划一点
+        :return: 如果找得到返回层数，找不到返回None
+        """
         # 进入
         success = True
         self.ui_click(self.I_SE_ENTER, self.I_SE_FIRE)
@@ -121,27 +163,116 @@ class ScriptTask(GameUi, GeneralBattle, SwitchSoul, SecretAssets):
                 success = self.run_general_battle(self.battle_config)
                 continue
 
-        self.ui_click(self.I_UI_BACK_BLUE, self.I_CHECK_MAIN)
-        self.ui_get_current_page()
-        self.ui_goto(page_main)
-        if con.secret_gold_50 or con.secret_gold_100:
-            self.open_buff()
-            if con.secret_gold_50:
-                self.gold_50(False)
-            if con.secret_gold_100:
-                self.gold_100(False)
-            self.close_buff()
-        self.set_next_run(task='Secret', success=True, finish=True)
-        raise TaskEnd('Secret')
+    def run_normal_secret(self, con):
+        """
+        常规秘闻
+        """
+        # 进入
+        self.ui_click(self.I_SE_ENTER, self.I_N_FIRE)
 
-    def find_battle(self, screenshot: bool=False) -> int or None:
+        # 开始
+        logger.info('Start secret zone')
+
+        is_buff_opened = False
+        swipe_count = 0
+        click_layer = 0
+        while 1:
+            self.screenshot()
+            if not self.appear(self.I_N_FIRE):
+                continue
+
+            if self.appear(self.I_N_FIRST_BATTLE, threshold=0.9) and click_layer < 3:
+                # 尝试切换至挑战楼层
+                battle_x, battle_y, w, h = self.I_N_FIRST_BATTLE.roi_front
+                self.device.click(x=battle_x + random.randint(-60, -20), y=battle_y + random.randint(-10, 10))
+                click_layer += 1
+                time.sleep(0.2)
+                continue
+            elif self.appear(self.I_N_FIRST_BATTLE_SELECTED, threshold=0.92):
+                battle = True
+            elif swipe_count > 4:
+                # 下滑四次没找到则退出
+                break
+            else:
+                self.swipe(self.S_SE_DOWN_SEIPE, interval=3)
+                time.sleep(2)
+                swipe_count += 1
+                continue
+
+            if battle:
+                click_layer = 0
+                appear_gold = self.appear(self.I_N_FIRST_GOLD)
+                buff = []
+                if appear_gold:
+                    if not is_buff_opened:
+                        if con.secret_gold_50:
+                            buff.append(BuffClass.GOLD_50)
+                        if con.secret_gold_100:
+                            buff.append(BuffClass.GOLD_100)
+                        is_buff_opened = True
+                elif is_buff_opened:
+                    if con.secret_gold_50:
+                        buff.append(BuffClass.GOLD_50_CLOSE)
+                    if con.secret_gold_100:
+                        buff.append(BuffClass.GOLD_100_CLOSE)
+                    is_buff_opened = False
+                self.click_normal_battle()
+
+                self.device.stuck_record_add('BATTLE_STATUS_S')
+                # 延长时间并在战斗结束后改回来
+                self.device.stuck_timer_long = Timer(480, count=480).start()
+                success = self.run_general_battle(self.battle_config, buff=buff)
+                self.device.stuck_timer_long = Timer(300, count=300).start()
+                # 跳过战斗结束对话
+                self.skip_quit_dialogue()
+                if not success:
+                    break
+
+    def skip_quit_dialogue(self):
+        # 跳过战斗结束对话
+        # 有跳过按钮
+        self.ui_click_until_disappear(self.I_N_QUIT_SKIT_DIALOGUE, interval=1)
+        # 无跳过按钮
+        self.skip_dialogue(self.C_SE_CLICK_DIALOGUE, self.I_N_VIDEO, interval=1)
+
+    def skip_dialogue(self, click, stop, interval=1, negate=False):
+        """
+        循环的一个操作，直到stop出现/消失
+        :param click:
+        :param stop:
+        :parm interval
+        :param negate: True stop消失时退出。False stop出现时退出
+        :return:
+        """
+        self.device.click_record_clear()
+        click_count = 0
+        while 1:
+            self.screenshot()
+            if negate:
+                appear = not self.appear(stop)
+            else:
+                appear = self.appear(stop)
+            if appear:
+                break
+            else:
+                self.click(click, interval=interval)
+                click_count += 1
+                if click_count >= 6:
+                    logger.warning('Secret mission chat too long, force to close')
+                    click_count = 0
+                    self.device.click_record_clear()
+                continue
+
+    def find_battle(self, screenshot: bool = False) -> int or None:
         """
         自动寻找挑战的层数并且选定 , 找不到会向下划一点
         :return: 如果找得到返回层数，找不到返回None
         """
+
         def set_layer_roi(ocr_target: RuleOcr, roi: tuple):
             ocr_target.roi[0] = int(roi[0]) - 225
             ocr_target.roi[1] = int(roi[1]) - 40
+
         def check_layer(ocr_target: RuleOcr, roi=None) -> int or None:
             #
             # 手动留了一个bug： 即使匹配到了未通关 但是在判断层数的时候还是会先判断第一个是什么的
@@ -199,7 +330,6 @@ class ScriptTask(GameUi, GeneralBattle, SwitchSoul, SecretAssets):
                 logger.warning(f'OCR failed, try again {jade_num}')
                 return None
 
-
         if screenshot:
             self.screenshot()
         if self.appear(self.I_CHAT_CLOSE_BUTTON):
@@ -246,6 +376,18 @@ class ScriptTask(GameUi, GeneralBattle, SwitchSoul, SecretAssets):
             if self.appear_then_click(self.I_SE_FIRE, interval=1):
                 continue
 
+    def click_normal_battle(self):
+        self.device.click_record_clear()
+        while 1:
+            self.screenshot()
+            if self.appear(self.I_N_VIDEO) and not self.appear(self.I_N_FIRE):
+                self.skip_dialogue(self.C_SE_CLICK_DIALOGUE, self.I_N_VIDEO, interval=1, negate=True)
+                continue
+            if not self.appear(self.I_N_VIDEO):
+                break
+            if self.appear_then_click(self.I_N_FIRE, interval=1):
+                continue
+
     def battle_wait(self, random_click_swipt_enable: bool) -> bool:
         # 重写
         self.device.stuck_record_add('BATTLE_STATUS_S')
@@ -286,6 +428,7 @@ class ScriptTask(GameUi, GeneralBattle, SwitchSoul, SecretAssets):
 if __name__ == '__main__':
     from module.config.config import Config
     from module.device.device import Device
+
     c = Config('oas1')
     d = Device(c)
     t = ScriptTask(c, d)
