@@ -99,12 +99,21 @@
     "description": "奉纳"
   },
   {
-    "itemName": "st_god_present",
-    "imageName": "simple_st_god_present.png",
-    "roiFront": "578,234,131,73",
-    "roiBack": "542,117,204,219",
+    "itemName": "st_souls_discard",
+    "imageName": "simple_st_souls_discard.png",
+    "roiFront": "166,238,27,26",
+    "roiBack": "166,238,27,26",
     "method": "Template matching",
     "threshold": 0.8,
-    "description": "神赐"
+    "description": "弃置扫把"
+  },
+  {
+    "itemName": "st_dialog",
+    "imageName": "simple_st_dialog.png",
+    "roiFront": "877,260,35,36",
+    "roiBack": "820,200,145,164",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "弹框"
   }
 ]
