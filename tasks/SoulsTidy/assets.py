@@ -14,7 +14,7 @@ class SoulsTidyAssets:
 	# 御魂详细 
 	C_ST_DETAIL = RuleClick(roi_front=(1189,321,87,74), roi_back=(1189,321,87,74), name="st_detail")
 	# 出现神赐 
-	C_ST_GOD_PRSENT = RuleClick(roi_front=(717,165,100,48), roi_back=(926,165,100,54), name="st_god_prsent")
+	C_ST_GOD_PRSENT = RuleClick(roi_front=(987,122,149,303), roi_back=(987,122,149,303), name="st_god_prsent")
 
 
 	# Image Rule Assets
@@ -40,8 +40,10 @@ class SoulsTidyAssets:
 	I_ST_CAT = RuleImage(roi_front=(799,269,147,133), roi_back=(799,269,147,133), threshold=0.7, method="Template matching", file="./tasks/SoulsTidy/simple/simple_st_cat.png")
 	# 奉纳 
 	I_ST_DONATE = RuleImage(roi_front=(813,628,126,68), roi_back=(813,628,126,68), threshold=0.8, method="Template matching", file="./tasks/SoulsTidy/simple/simple_st_donate.png")
-	# 神赐 
-	I_ST_GOD_PRESENT = RuleImage(roi_front=(578,234,131,73), roi_back=(542,117,204,219), threshold=0.8, method="Template matching", file="./tasks/SoulsTidy/simple/simple_st_god_present.png")
+	# 弃置扫把 
+	I_ST_SOULS_DISCARD = RuleImage(roi_front=(166,238,27,26), roi_back=(166,238,27,26), threshold=0.8, method="Template matching", file="./tasks/SoulsTidy/simple/simple_st_souls_discard.png")
+	# 弹框 
+	I_ST_DIALOG = RuleImage(roi_front=(877,260,35,36), roi_back=(820,200,145,164), threshold=0.8, method="Template matching", file="./tasks/SoulsTidy/simple/simple_st_dialog.png")
 
 
 	# Long Click Rule Assets
@@ -52,8 +54,6 @@ class SoulsTidyAssets:
 	# Ocr Rule Assets
 	# 奉纳获得的金币 
 	O_ST_GOLD = RuleOcr(roi=(888,575,105,32), area=(888,575,105,32), mode="Digit", method="Default", keyword="", name="st_gold")
-	# 奉纳的御魂等级 
-	O_ST_FIRSET_LEVEL = RuleOcr(roi=(91,237,35,28), area=(91,237,35,28), mode="Single", method="Default", keyword="", name="st_firset_level")
 	# 入手顺序 
 	O_ST_SORT_TIME = RuleOcr(roi=(387,118,110,42), area=(387,118,110,42), mode="Single", method="Default", keyword="入手顺序", name="st_sort_time")
 	# 等级/星级 最上边的 
