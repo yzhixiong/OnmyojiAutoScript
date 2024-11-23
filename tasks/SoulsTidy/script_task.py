@@ -106,10 +106,9 @@ class ScriptTask(GameUi, SoulsTidyAssets):
         # 开始奉纳
         while 1:
             self.screenshot()
-            firvel = self.O_ST_FIRSET_LEVEL.ocr(self.device.image)
-            if firvel != '古':
-                # 问就是 把 +0 识别成了 古
-                logger.info('No zero level, bongna done')
+            if not self.appear(self.I_ST_SOULS_DISCARD):
+                logger.info('no discard souls')
+                # 第一个御魂不是弃置时 奉纳结束
                 break
             # !!!!!!  这里没有检查金币是否足够
             # 长按
@@ -126,31 +125,19 @@ class ScriptTask(GameUi, SoulsTidyAssets):
             if not self.appear(self.I_ST_DONATE):
                 logger.warning('Donate button not appear, skip')
                 continue
+            dialog_appear = False
             while 1:
                 self.screenshot()
-                if self.appear_then_click(self.I_UI_CONFIRM, interval=0.5):
+                # 点击奉纳直到出现弹框
+                if not dialog_appear:
+                    self.ui_click(self.I_ST_DONATE, self.I_ST_DIALOG, interval=5.5)
+                    dialog_appear = True
                     continue
-                # 如果奉纳少就不是神赐而是获得奖励
-                if self.ui_reward_appear_click():
-                    continue
-                # 出现神赐, 就点击然后消失，
-                if self.appear(self.I_ST_GOD_PRESENT):
-                    logger.info('God present appear')
-                    sleep(0.5)
-                    self.screenshot()
-                    if not self.appear(self.I_ST_GOD_PRESENT):
-                        continue
-                    while 1:
-                        self.screenshot()
-                        if not self.appear(self.I_ST_GOD_PRESENT):
-                            logger.info('God present disappear')
-                            break
-                        if self.click(self.C_ST_GOD_PRSENT, interval=1):
-                            continue
-                    sleep(0.5)
+
+                if not self.appear(self.I_ST_DIALOG, interval=1):
                     break
-                if self.appear_then_click(self.I_ST_DONATE, interval=5.5):
-                    continue
+                else:
+                    self.click(self.C_ST_GOD_PRSENT, interval=1)
             logger.info('Donate one')
 
         logger.info('Bongna done')
