@@ -10,8 +10,8 @@
   },
   {
     "itemName": "ms_records",
-    "roiFront": "324,638,44,36",
-    "roiBack": "324,638,44,36",
+    "roiFront": "338,638,30,36",
+    "roiBack": "338,638,30,36",
     "mode": "Digit",
     "method": "Default",
     "keyword": "",
