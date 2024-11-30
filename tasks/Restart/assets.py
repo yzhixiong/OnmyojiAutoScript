@@ -18,7 +18,7 @@ class RestartAssets:
 	# 999签到福袋 
 	I_HARVEST_SIGN_999 = RuleImage(roi_front=(345,494,23,29), roi_back=(51,459,888,103), threshold=0.8, method="Template matching", file="./tasks/Restart/harvest/harvest_harvest_sign_999.png")
 	# 邮件小图标 
-	I_HARVEST_MAIL = RuleImage(roi_front=(337,505,37,25), roi_back=(38,465,880,89), threshold=0.8, method="Template matching", file="./tasks/Restart/harvest/harvest_harvest_mail.png")
+	I_HARVEST_MAIL = RuleImage(roi_front=(1145,18,37,25), roi_back=(1145,18,37,25), threshold=0.8, method="Template matching", file="./tasks/Restart/harvest/harvest_harvest_mail.png")
 	# 全部收取 
 	I_HARVEST_MAIL_ALL = RuleImage(roi_front=(80,622,75,64), roi_back=(80,622,75,64), threshold=0.8, method="Template matching", file="./tasks/Restart/harvest/harvest_harvest_mail_all.png")
 	# 有些邮件需要点击一次 
