@@ -38,8 +38,8 @@
   {
     "itemName": "harvest_mail",
     "imageName": "harvest_harvest_mail.png",
-    "roiFront": "1145,18,37,25",
-    "roiBack": "1145,18,37,25",
+    "roiFront": "1159,21,19,21",
+    "roiBack": "1159,21,19,21",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "邮件小图标"
