@@ -60,9 +60,9 @@ class RestartAssets:
 
 	# Image Rule Assets
 	# 庭院卷轴打开 
-	I_LOGIN_SCROOLL_OPEN = RuleImage(roi_front=(1159,604,56,48), roi_back=(1159,604,56,48), threshold=0.8, method="Template matching", file="./tasks/Restart/login/login_login_scrooll_open.png")
+	I_LOGIN_SCROOLL_OPEN = RuleImage(roi_front=(1208,609,33,83), roi_back=(1208,609,33,83), threshold=0.8, method="Template matching", file="./tasks/Restart/login/login_login_scrooll_open.png")
 	# 庭院卷轴关闭 
-	I_LOGIN_SCROOLL_CLOSE = RuleImage(roi_front=(1160,614,53,39), roi_back=(1160,614,53,39), threshold=0.7, method="Template matching", file="./tasks/Restart/login/login_login_scrooll_close.png")
+	I_LOGIN_SCROOLL_CLOSE = RuleImage(roi_front=(1181,634,28,39), roi_back=(1162,595,77,112), threshold=0.7, method="Template matching", file="./tasks/Restart/login/login_login_scrooll_close.png")
 	# description 
 	I_LOGIN_RED_CLOSE = RuleImage(roi_front=(912,0,360,290), roi_back=(912,0,360,290), threshold=0.8, method="Template matching", file="./tasks/Restart/login/login_login_red_close.png")
 	# description 
