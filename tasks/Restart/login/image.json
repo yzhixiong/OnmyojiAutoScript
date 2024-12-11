@@ -2,8 +2,8 @@
   {
     "itemName": "login_scrooll_open",
     "imageName": "login_login_scrooll_open.png",
-    "roiFront": "1156,621,56,48",
-    "roiBack": "1156,621,56,48",
+    "roiFront": "1159,604,56,48",
+    "roiBack": "1159,604,56,48",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "庭院卷轴打开"
