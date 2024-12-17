@@ -38,15 +38,16 @@ class ScriptTask(GameUi, GeneralBattle, DuelAssets):
                 # 任务执行时间超过限制时间，退出
                 logger.info('Duel task is over time')
                 break
-            if con.honor_full_exit and self.check_honor():
-                # 荣誉满了，退出
-                logger.info('Duel task is over honor')
-                break
-            current_score = self.check_score(con.target_score)
-            if not current_score:
-                # 分数够了，退出
-                logger.info('Duel task is over score')
-                break
+            # if con.honor_full_exit and self.check_honor():
+            #     # 荣誉满了，退出
+            #     logger.info('Duel task is over honor')
+            #     break
+            # current_score = self.check_score(con.target_score)
+            # if not current_score:
+            #     # 分数够了，退出
+            #     logger.info('Duel task is over score')
+            #     break
+            current_score = 0
             self.duel_one(current_score, con.green_enable, con.green_mark)
 
         # 记得退回去到町中
@@ -106,18 +107,18 @@ class ScriptTask(GameUi, GeneralBattle, DuelAssets):
                 logger.info('You are already a celeb')
                 return None
             current_score = self.O_D_SCORE.ocr(self.device.image)
-            if current_score < 1200:
-                # 分太低了
-                logger.warning('Score is too low')
-                logger.error('Please enhance your score')
-                raise RequestHumanTakeover
-            elif current_score > 10000:
-                # 识别错误分数超过一万, 去掉最高位
-                logger.warning('Recognition error, score is too high')
-                logger.warning('Remove the highest digit')
-                current_score = int(str(current_score)[1:])
-            elif current_score > 3000:
-                continue
+            # if current_score < 1200:
+            #     # 分太低了
+            #     logger.warning('Score is too low')
+            #     logger.error('Please enhance your score')
+            #     raise RequestHumanTakeover
+            # elif current_score > 10000:
+            #     # 识别错误分数超过一万, 去掉最高位
+            #     logger.warning('Recognition error, score is too high')
+            #     logger.warning('Remove the highest digit')
+            #     current_score = int(str(current_score)[1:])
+            # elif current_score > 3000:
+            #     continue
             return current_score if current_score <= target else None
 
     def duel_one(self, current_score: int, enable: bool=False,
@@ -155,8 +156,8 @@ class ScriptTask(GameUi, GeneralBattle, DuelAssets):
                 break
             if current_score <= 1800 and self.appear(self.I_D_PREPARE):
                 # 低段位有的准备
-                self.ui_click(self.I_D_PREPARE, self.I_D_PREPARE_DONE)
-                self.wait_until_disappear(self.I_D_PREPARE_DONE)
+                self.ui_click_until_disappear(self.I_D_PREPARE)
+                # self.wait_until_disappear(self.I_D_PREPARE_DONE)
                 logger.info('Duel prepare')
                 break
         # 正式进入战斗
