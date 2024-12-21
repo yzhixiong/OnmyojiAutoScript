@@ -304,6 +304,10 @@ class ScriptTask(WQExplore, SecretScriptTask, WantedQuestsAssets):
             logger.warning('This is a secret mission but not unlock')
             self.ui_click(self.I_TRACE_TRUE, self.I_TRACE_FALSE)
             return False
+        if self.appear(self.I_IG_TASK_1):
+            # 忽略任务酒吞童子
+            self.ui_click(self.I_TRACE_TRUE, self.I_TRACE_FALSE)
+            return False
 
         info_wq_list = []
         for i in range(4):

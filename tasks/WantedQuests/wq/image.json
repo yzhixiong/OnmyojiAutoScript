@@ -108,6 +108,15 @@
     "description": "判断是否还有任务"
   },
   {
+    "itemName": "ig_task_1",
+    "imageName": "wq_ig_task_1.png",
+    "roiFront": "298,222,58,40",
+    "roiBack": "298,222,58,40",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "忽略任务酒吞童子"
+  },
+  {
     "itemName": "wq_trace_one_enable",
     "imageName": "wq_trace_one_enable.png",
     "roiFront": "160,175,120,60",
