@@ -61,6 +61,12 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
 
             # 照顾一下某些模拟器慢的
             time.sleep(0.1)
+        else:
+            # 确保进入战斗（过了加载界面再执行绿标）
+            while 1:
+                self.screenshot()
+                if self.is_in_battle(False):
+                    break
 
         # 绿标
         self.wait_until_disappear(self.I_BUFF)
