@@ -164,8 +164,8 @@
   {
     "itemName": "friends",
     "imageName": "gb_friends.png",
-    "roiFront": "89,14,36,36",
-    "roiBack": "89,14,36,36",
+    "roiFront": "89,24,21,26",
+    "roiBack": "89,24,21,26",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "左上角好友图标"
