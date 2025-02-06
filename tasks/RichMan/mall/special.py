@@ -25,7 +25,7 @@ class Special(Buy, MallNavbar):
 
         self._enter_special()
         # 向下滑找到购买的物品
-        totem_bought, medium_bought, low_bought = False, False, False
+        totem_bought, medium_bought, low_bought = False, con.medium_bondling_discs == 0, con.low_bondling_discs == 0
         while 1:
             self.screenshot()
             if not totem_bought and self.appear(self.I_SP_BUY_TOTEM):
