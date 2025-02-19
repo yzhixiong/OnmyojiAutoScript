@@ -172,7 +172,8 @@ class ScriptTask(GameUi, GeneralBattle, SwitchSoul, SecretAssets):
 
         # 开始
         logger.info('Start secret zone')
-
+        self.I_N_FIRST_BATTLE_SELECTED.method = 'Binarize matching'
+        self.I_N_FIRST_BATTLE_SELECTED.bin_threshold = 45
         is_buff_opened = False
         swipe_count = 0
         click_layer = 0
