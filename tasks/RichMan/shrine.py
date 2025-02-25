@@ -27,6 +27,8 @@ class Shrine(GameUi, RichManAssets):
                 break
             if self.click(self.C_C_SHRINE, interval=1):
                 continue
+            if self.ui_click_until_disappear(self.I_S_BACK_SOUL, interval=1):
+                continue
             # if self.appear_then_click(self.I_CENTER1, interval=1):
             #     continue
             # if self.appear_then_click(self.I_CENTER2, interval=1):

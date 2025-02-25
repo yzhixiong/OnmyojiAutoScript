@@ -142,5 +142,14 @@
     "method": "Template matching",
     "threshold": 0.8,
     "description": "description"
+  },
+  {
+    "itemName": "s_back_soul",
+    "imageName": "shrine_s_back_soul.png",
+    "roiFront": "1166,435,58,26",
+    "roiBack": "1166,435,58,26",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "返魂"
   }
 ]

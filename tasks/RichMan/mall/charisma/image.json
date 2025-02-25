@@ -2,8 +2,8 @@
   {
     "itemName": "ch_blue",
     "imageName": "charisma_ch_blue.png",
-    "roiFront": "623,142,145,111",
-    "roiBack": "623,142,145,111",
+    "roiFront": "625.5,142,137,102",
+    "roiBack": "160,133,853,441",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "蓝票"
@@ -11,8 +11,8 @@
   {
     "itemName": "ch_black",
     "imageName": "charisma_ch_black.png",
-    "roiFront": "848,393,141,110",
-    "roiBack": "848,393,141,110",
+    "roiFront": "847,384,146,113",
+    "roiBack": "135,135,936,438",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "description"
