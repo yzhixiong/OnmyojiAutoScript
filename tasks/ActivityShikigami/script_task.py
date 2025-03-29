@@ -45,15 +45,15 @@ class ScriptTask(GameUi, BaseActivity, SwitchSoul, ActivityShikigamiAssets):
         self.ui_get_current_page()
         self.ui_goto(page_main)
 
-        self.open_buff()
-        self.soul(is_open=True)
-        self.close_buff()
+        # self.open_buff()
+        # self.soul(is_open=True)
+        # self.close_buff()
 
         self.home_main()
 
         # 选择是游戏的体力还是活动的体力
         current_ap = config.general_climb.ap_mode
-        #self.switch(current_ap)
+        self.switch(current_ap)
 
         # 设定是否锁定阵容
         # if config.general_battle.lock_team_enable:
@@ -127,9 +127,9 @@ class ScriptTask(GameUi, BaseActivity, SwitchSoul, ActivityShikigamiAssets):
                 logger.info("General battle success")
 
         self.main_home()
-        self.open_buff()
-        self.soul(is_open=False)
-        self.close_buff()
+        # self.open_buff()
+        # self.soul(is_open=False)
+        # self.close_buff()
         if config.general_climb.active_souls_clean:
             self.set_next_run(task='SoulsTidy', success=False, finish=False, target=datetime.now())
         self.set_next_run(task="ActivityShikigami", success=True)
@@ -176,8 +176,8 @@ class ScriptTask(GameUi, BaseActivity, SwitchSoul, ActivityShikigamiAssets):
         """
         self.screenshot()
         if current_ap == ApMode.AP_ACTIVITY:
-            cu, res, total = self.O_REMAIN_AP_ACTIVITY.ocr(image=self.device.image)
-            if cu == 0 and cu + res == total:
+            cu = self.O_REMAIN_AP_ACTIVITY.ocr(image=self.device.image)
+            if cu == 0:
                 logger.warning("Activity ap not enough")
                 return False
             return True
