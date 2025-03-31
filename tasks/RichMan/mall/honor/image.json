@@ -2,7 +2,7 @@
   {
     "itemName": "honor_blue",
     "imageName": "honor_honor_blue.png",
-    "roiFront": "868,152,100,100",
+    "roiFront": "868,145,100,100",
     "roiBack": "154,113,864,476",
     "method": "Template matching",
     "threshold": 0.8,
@@ -11,7 +11,7 @@
   {
     "itemName": "honor_black",
     "imageName": "honor_honor_black.png",
-    "roiFront": "645,406,100,100",
+    "roiFront": "646,395,100,100",
     "roiBack": "145,96,883,491",
     "method": "Template matching",
     "threshold": 0.8,
@@ -25,5 +25,14 @@
     "method": "Template matching",
     "threshold": 0.8,
     "description": "三星白蛋"
+  },
+  {
+    "itemName": "honor_swipe_check",
+    "imageName": "honor_honor_swipe_check.png",
+    "roiFront": "387,387,82,64",
+    "roiBack": "130,380,862,113",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "判断是否滑动到底"
   }
 ]

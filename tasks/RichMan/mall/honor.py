@@ -22,8 +22,17 @@ class Honor(Special):
             logger.info('Honor is not enable')
             return
         self._enter_honor()
-        self._honor_mystery_amulet(con.mystery_amulet)
-        self._honor_black_daruma_scrap(con.black_daruma_scrap)
+        while 1:
+            self.screenshot()
+            # 向下滑找到购买的物品
+            self._honor_mystery_amulet(con.mystery_amulet)
+            self._honor_black_daruma_scrap(con.black_daruma_scrap)
+            if self.appear(self.I_HONOR_SWIPE_CHECK):
+                # 如果滑动到底了
+                logger.info('Swipe to bottom')
+                break
+            if self.swipe(self.S_HONOR_DOWN, interval=2):
+                time.sleep(2)
 
 
     def _honor_mystery_amulet(self, enable: bool=False):

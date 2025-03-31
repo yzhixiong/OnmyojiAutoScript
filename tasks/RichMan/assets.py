@@ -107,11 +107,13 @@ class RichManAssets:
 
 	# Image Rule Assets
 	# 蓝票 
-	I_HONOR_BLUE = RuleImage(roi_front=(868,152,100,100), roi_back=(154,113,864,476), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_blue.png")
+	I_HONOR_BLUE = RuleImage(roi_front=(868,145,100,100), roi_back=(154,113,864,476), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_blue.png")
 	# 黑蛋碎片 
-	I_HONOR_BLACK = RuleImage(roi_front=(645,406,100,100), roi_back=(145,96,883,491), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_black.png")
+	I_HONOR_BLACK = RuleImage(roi_front=(646,395,100,100), roi_back=(145,96,883,491), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_black.png")
 	# 三星白蛋 
 	I_HONOR_WHITE = RuleImage(roi_front=(424,399,100,100), roi_back=(155,127,841,388), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_white.png")
+	# 判断是否滑动到底 
+	I_HONOR_SWIPE_CHECK = RuleImage(roi_front=(387,387,82,64), roi_back=(130,380,862,113), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_swipe_check.png")
 
 
 	# Ocr Rule Assets
@@ -121,6 +123,11 @@ class RichManAssets:
 	O_HONOR_BLACK = RuleOcr(roi=(749,358,24,34), area=(749,358,24,34), mode="Digit", method="Default", keyword="", name="honor_black")
 	# 三星白蛋 
 	O_HONOR_WHITE = RuleOcr(roi=(527,359,25,28), area=(527,359,25,28), mode="Digit", method="Default", keyword="", name="honor_white")
+
+
+	# Swipe Rule Assets
+	# 向下滑动 
+	S_HONOR_DOWN = RuleSwipe(roi_front=(249,419,486,22), roi_back=(339,300,301,22), mode="default", name="honor_down")
 
 
 	# Image Rule Assets
