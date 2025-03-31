@@ -56,22 +56,22 @@ class ScriptTask(GameUi, BaseActivity, SwitchSoul, ActivityShikigamiAssets):
         self.switch(current_ap)
 
         # 设定是否锁定阵容
-        # if config.general_battle.lock_team_enable:
-        #     logger.info("Lock team")
-        #     while 1:
-        #         self.screenshot()
-        #         if self.appear_then_click(self.I_UNLOCK, interval=1):
-        #             continue
-        #         if self.appear(self.I_LOCK):
-        #             break
-        # else:
-        #     logger.info("Unlock team")
-        #     while 1:
-        #         self.screenshot()
-        #         if self.appear_then_click(self.I_LOCK, interval=1):
-        #             continue
-        #         if self.appear(self.I_UNLOCK):
-        #             break
+        if config.general_battle.lock_team_enable:
+            logger.info("Lock team")
+            while 1:
+                self.screenshot()
+                if self.appear_then_click(self.I_UNLOCK, interval=1):
+                    continue
+                if self.appear(self.I_LOCK):
+                    break
+        else:
+            logger.info("Unlock team")
+            while 1:
+                self.screenshot()
+                if self.appear_then_click(self.I_LOCK, interval=1):
+                    continue
+                if self.appear(self.I_UNLOCK):
+                    break
 
         # 流程应该是 在页面处：
         # 1. 判定计数是否超了，时间是否超了
@@ -127,9 +127,9 @@ class ScriptTask(GameUi, BaseActivity, SwitchSoul, ActivityShikigamiAssets):
                 logger.info("General battle success")
 
         self.main_home()
-        # self.open_buff()
-        # self.soul(is_open=False)
-        # self.close_buff()
+        self.open_buff()
+        self.soul(is_open=False)
+        self.close_buff()
         if config.general_climb.active_souls_clean:
             self.set_next_run(task='SoulsTidy', success=False, finish=False, target=datetime.now())
         self.set_next_run(task="ActivityShikigami", success=True)
@@ -176,11 +176,16 @@ class ScriptTask(GameUi, BaseActivity, SwitchSoul, ActivityShikigamiAssets):
         """
         self.screenshot()
         if current_ap == ApMode.AP_ACTIVITY:
-            cu = self.O_REMAIN_AP_ACTIVITY.ocr(image=self.device.image)
-            if cu == 0:
-                logger.warning("Activity ap not enough")
+            res: int = self.O_REMAIN_AP_ACTIVITY2.ocr_digit(self.device.image)
+            if res <= 0:
+                logger.warning(f'Activity ap {res} not enough')
                 return False
             return True
+            # cu, res, total = self.O_REMAIN_AP_ACTIVITY.ocr(image=self.device.image)
+            # if cu == 0 and cu + res == total:
+            #     logger.warning("Activity ap not enough")
+            #     return False
+            # return True
 
         elif current_ap == ApMode.AP_GAME:
             cu, res, total = self.O_REMAIN_AP.ocr(image=self.device.image)
