@@ -17,9 +17,16 @@ from tasks.Orochi.config import Orochi, UserStatus, Layer
 from module.logger import logger
 from module.exception import TaskEnd
 
+
 class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi, SwitchSoul, OrochiAssets):
+    # 最大失败次数
+    battle_fail_count: int = None
 
     def run(self) -> bool:
+        # 使用二值化判断是否出现遮罩层
+        self.I_FALSE.method = 'Binarize matching'
+        self.I_FALSE.bin_threshold = 110
+
         # 御魂切换方式一
         if self.config.orochi.switch_soul.enable:
             self.ui_get_current_page()
@@ -37,6 +44,7 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
 
         limit_count = self.config.orochi.orochi_config.limit_count
         limit_time = self.config.orochi.orochi_config.limit_time
+        self.battle_fail_count = 0
         self.current_count = 0
         self.limit_count: int = limit_count
         self.limit_time: timedelta = timedelta(hours=limit_time.hour, minutes=limit_time.minute, seconds=limit_time.second)
@@ -171,8 +179,9 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
                 if self.is_in_room():
                     logger.info('Orochi time limit out')
                     break
-
-
+            if self.orochi_check_battle_fail_count():
+                logger.warning(f'Too many lost battles in a row: {self.battle_fail_count}')
+                break
 
             # 如果没有进入房间那就不需要后面的邀请
             if not self.is_in_room():
@@ -239,7 +248,9 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
             if datetime.now() - self.start_time >= self.limit_time:
                 logger.info('Orochi time limit out')
                 break
-
+            if self.orochi_check_battle_fail_count():
+                logger.warning(f'Too many lost battles in a row: {self.battle_fail_count}')
+                break
             if self.check_then_accept():
                 continue
 
@@ -263,7 +274,6 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
             # 如果还在战斗中，就退出战斗
             if self.exit_battle():
                 pass
-
 
         self.ui_get_current_page()
         self.ui_goto(page_main)
@@ -431,6 +441,7 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
         self.C_REWARD_3.name = 'C_REWARD'
         # 战斗过程 随机点击和滑动 防封
         logger.info("Start battle process")
+        battle_res = False
         while 1:
             self.screenshot()
             action_click = random.choice([self.C_WIN_1, self.C_WIN_2, self.C_WIN_3])
@@ -452,7 +463,8 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
                         break
                     if self.click(action_click, interval=1.5):
                         continue
-                return True
+                battle_res = True
+                break
             if self.appear(self.I_REWARD):
                 # 魂
                 logger.info('Win battle')
@@ -464,16 +476,28 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
                         continue
                     if not self.appear(self.I_REWARD):
                         break
-                return True
+                battle_res = True
+                break
 
-            if self.appear(self.I_FALSE):
+            if self.appear(self.I_FALSE2):
                 logger.warning('False battle')
                 self.ui_click_until_disappear(self.I_FALSE)
-                return False
+                break
 
             # 如果开启战斗过程随机滑动
             if random_click_swipt_enable:
                 self.random_click_swipt()
+        if battle_res:
+            self.battle_fail_count = 0
+        else:
+            self.battle_fail_count += 1
+
+        while not self.is_in_battle(True):
+            break
+        return battle_res
+
+    def orochi_check_battle_fail_count(self) -> None:
+        return self.battle_fail_count >= self.config.orochi.orochi_config.max_allowed_failures
 
     def orochi_switch_soul(self) -> None:
         # 判断是否开启根据选层切换御魂
@@ -500,16 +524,29 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
 if __name__ == '__main__':
     from module.config.config import Config
     from module.device.device import Device
+
     c = Config('oas1')
     d = Device(c)
     t = ScriptTask(c, d)
 
     t.run()
 
+    d.screenshot()
+    #
+    # # save_image(d.image, "./tasks/Orochi/1.png")
+    #
+    # # 有遮罩层
+    # # file = r'./tasks/Orochi/1.png'
+    # # 无遮罩层
+    # file = r'./tasks/Orochi/2.png'
+    # image = load_image(file)
+    # points__ = GeneralBattleAssets.I_FALSE
+    # points__.method = 'Binarize matching'
+    # points__.bin_threshold = 110
+    # matching = points__.test_match(d.image)
+    # # matching = points__.test_match(image)
+    # print(matching)
 
-
-
-
-
-
-
+    # GeneralBattleAssets.I_FALSE.method = 'Binarize matching'
+    # GeneralBattleAssets.I_FALSE.bin_threshold = 110
+    # print(t.appear(GeneralBattleAssets.I_FALSE))

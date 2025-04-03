@@ -453,6 +453,9 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
             self.wait_until_disappear(self.I_BUFF)
             self.green_mark(config.green_enable, config.green_mark)
 
+        logger.hr("General over battle start ", 2)
+        self.current_count += 1
+        logger.info(f"Current count: {self.current_count}")
         return self.battle_wait(config.random_click_swipt_enable)
 
     def check_lock(self, enable: bool, lock_image, unlock_image):

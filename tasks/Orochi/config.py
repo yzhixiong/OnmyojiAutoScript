@@ -43,6 +43,8 @@ class OrochiConfig(ConfigBase):
     limit_count: int = Field(default=30, description='limit_count_help')
     # 是否开启御魂加成
     soul_buff_enable: bool = Field(default=False, description='soul_buff_enable_help')
+    # 允许连续失败次数
+    max_allowed_failures: int = Field(default=1, description='max_allowed_failures_help')
 
 class SwitchSoulConfig(BaseSwitchSoulConfig):
     enable: bool = Field(default=False)
