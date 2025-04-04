@@ -259,5 +259,14 @@
     "method": "Template matching",
     "threshold": 0.8,
     "description": "新版本的预设图案带数字"
+  },
+  {
+    "itemName": "yyb_popup_ads",
+    "imageName": "gb_yyb_popup_ads.png",
+    "roiFront": "63,203,40,36",
+    "roiBack": "63,203,40,36",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "应用宝弹窗广告"
   }
 ]

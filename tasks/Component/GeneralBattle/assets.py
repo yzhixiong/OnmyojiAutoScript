@@ -64,6 +64,8 @@ class GeneralBattleAssets:
 	C_GREEN_MARK_AREA = RuleClick(roi_front=(0,0,1280,720), roi_back=(0,0,1280,720), name="green_mark_area")
 	# 战斗的时候有一定的概率随机点击 
 	C_RANDOM_CLICK = RuleClick(roi_front=(104,79,1050,507), roi_back=(255,65,100,100), name="random_click")
+	# 关闭应用宝弹窗广告 
+	C_YYB_POPUP_ADS_CLOSE = RuleClick(roi_front=(869,392,101,164), roi_back=(869,392,101,164), name="yyb_popup_ads_close")
 
 
 	# Image Rule Assets
@@ -125,6 +127,8 @@ class GeneralBattleAssets:
 	I_GREEN_MARKER_BOTTOM = RuleImage(roi_front=(0,0,1280,720), roi_back=(0,0,1280,720), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_green_marker_bottom.png")
 	# 新版本的预设图案带数字 
 	I_PRESET_WIT_NUMBER = RuleImage(roi_front=(40,655,37,37), roi_back=(9,636,100,74), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_preset_wit_number.png")
+	# 应用宝弹窗广告 
+	I_YYB_POPUP_ADS = RuleImage(roi_front=(63,203,40,36), roi_back=(63,203,40,36), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_yyb_popup_ads.png")
 
 
 	# Image Rule Assets

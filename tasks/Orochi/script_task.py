@@ -444,6 +444,9 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
         battle_res = False
         while 1:
             self.screenshot()
+            if self.appear(self.I_YYB_POPUP_ADS, interval=2):
+                self.ui_click_until_smt_disappear(self.C_YYB_POPUP_ADS_CLOSE, self.I_YYB_POPUP_ADS, interval=1)
+                continue
             action_click = random.choice([self.C_WIN_1, self.C_WIN_2, self.C_WIN_3])
             if self.appear_then_click(self.I_WIN, action=action_click ,interval=0.8):
                 # 赢的那个鼓
