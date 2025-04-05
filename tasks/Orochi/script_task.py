@@ -444,17 +444,14 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
         battle_res = False
         while 1:
             self.screenshot()
-            if self.appear(self.I_YYB_POPUP_ADS, interval=2):
-                self.ui_click_until_smt_disappear(self.C_YYB_POPUP_ADS_CLOSE, self.I_YYB_POPUP_ADS, interval=1)
-                continue
             action_click = random.choice([self.C_WIN_1, self.C_WIN_2, self.C_WIN_3])
-            if self.appear_then_click(self.I_WIN, action=action_click ,interval=0.8):
+            if self.appear_then_click(self.I_WIN, action=action_click, interval=0.8):
                 # 赢的那个鼓
                 continue
             if self.appear(self.I_GREED_GHOST):
                 # 贪吃鬼
-                logger.info('Win battle')
-                self.wait_until_appear(self.I_REWARD, wait_time=1.5)
+                logger.info('Win battle GREED_GHOST')
+                self.wait_until_appear(self.I_REWARD, wait_time=2)
                 self.screenshot()
                 if not self.appear(self.I_GREED_GHOST):
                     logger.warning('Greedy ghost disappear. Maybe it is a false battle')
@@ -462,19 +459,22 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
                 while 1:
                     self.screenshot()
                     action_click = random.choice([self.C_REWARD_1, self.C_REWARD_2, self.C_REWARD_3])
-                    if not self.appear(self.I_GREED_GHOST):
-                        break
+                    if self.close_yyb_popup_ads():
+                        continue
                     if self.click(action_click, interval=1.5):
                         continue
+                    if not self.appear(self.I_GREED_GHOST):
+                        break
                 battle_res = True
                 break
             if self.appear(self.I_REWARD):
                 # 魂
-                logger.info('Win battle')
-                appear_greed_ghost = self.appear(self.I_GREED_GHOST)
+                logger.info('Win battle REWARD')
                 while 1:
                     self.screenshot()
                     action_click = random.choice([self.C_REWARD_1, self.C_REWARD_2, self.C_REWARD_3])
+                    if self.close_yyb_popup_ads():
+                        continue
                     if self.appear_then_click(self.I_REWARD, action=action_click, interval=1.5):
                         continue
                     if not self.appear(self.I_REWARD):

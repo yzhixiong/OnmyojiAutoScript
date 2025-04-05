@@ -175,9 +175,6 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
         win: bool = False
         while 1:
             self.screenshot()
-            if self.appear(self.I_YYB_POPUP_ADS, interval=2):
-                self.ui_click_until_smt_disappear(self.C_YYB_POPUP_ADS_CLOSE, self.I_YYB_POPUP_ADS, interval=1)
-                continue
             # 如果出现赢 就点击, 第二个是针对封魔的图片
             if self.appear(self.I_WIN, threshold=0.8) or self.appear(self.I_DE_WIN):
                 logger.info("Battle result is win")
@@ -215,6 +212,8 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
                 if self.appear_then_click(self.I_WIN, action=action_click, interval=0.5):
                     continue
                 if not self.appear(self.I_WIN):
+                    if self.close_yyb_popup_ads():
+                        continue
                     break
             else:
                 # 如果失败且 点击失败后
@@ -236,6 +235,8 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
                     self.appear_then_click(self.I_REWARD_GOLD, action=action_click, interval=1.5):
                 continue
             if not self.appear(self.I_REWARD) and not self.appear(self.I_REWARD_GOLD):
+                if self.close_yyb_popup_ads():
+                    continue
                 break
 
         return win
@@ -524,49 +525,34 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
             if self.appear_then_click(self.I_BUFF, interval=1):
                 continue
 
+    def close_yyb_popup_ads(self) -> bool:
+        self.wait_until_appear(self.I_YYB_POPUP_ADS, skip_first_screenshot=True, wait_time=1)
+        if self.appear(self.I_YYB_POPUP_ADS, interval=2):
+            logger.info('Close Yyb Popup ads')
+            self.ui_click_until_smt_disappear(self.C_YYB_POPUP_ADS_CLOSE, self.I_YYB_POPUP_ADS, interval=1)
+            return True
+        return False
 
 if __name__ == '__main__':
     from module.config.config import Config
     from module.device.device import Device
 
-    c = Config('oas1')
+    c = Config('oas2')
     d = Device(c)
     t = GeneralBattle(c, d)
     self = t
     # t.check_buff([BuffClass.EXP_50, BuffClass.GOLD_50])
 
-    img = cv2.imread(r"E:\preset3.png")
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    self.device.image = img
+    self.screenshot()
+    self.C_REWARD_1.roi_front=(1265,120,10,10)
+    self.C_REWARD_1.roi_back=(1265,120,10,10)
 
-
-    def get_unselect_color(tmp1, tmp2, tmp3, size):
-        # 获取未选择分组的颜色，3组之中必定存在两个颜色相似
-        # area 参数格式是（x1,y1,x2,y2）
-        color_1 = get_color(self.device.image,
-                            (tmp1.roi_back[0], tmp1.roi_back[1],
-                             tmp1.roi_back[0] + size[0], tmp1.roi_back[1] + size[1]))
-        color_2 = get_color(self.device.image,
-                            (tmp2.roi_back[0], tmp2.roi_back[1],
-                             tmp2.roi_back[0] + size[0], tmp2.roi_back[1] + size[1]))
-        color_3 = get_color(self.device.image,
-                            (tmp3.roi_back[0], tmp3.roi_back[1],
-                             tmp3.roi_back[0] + size[0], tmp3.roi_back[1] + size[1]))
-
-        if color_similar(color_1, color_2):
-            return color_1
-        if color_similar(color_2, color_3):
-            return color_2
-        return color_3
-
-
-    color_size = [self.C_PRESET_GROUP_1.roi_back[2],
-                  self.C_PRESET_GROUP_1.roi_back[3]]
-    unselected_color = get_unselect_color(self.C_PRESET_GROUP_1, self.C_PRESET_GROUP_2, self.C_PRESET_GROUP_3,
-                                          size=color_size)
-    print("")
-    color_size = [5, 5]
-    unselected_color = get_unselect_color(self.C_PRESET_TEAM_1, self.C_PRESET_TEAM_2, self.C_PRESET_TEAM_3,
-                                          size=color_size
-                                          )
-    print("")
+    # self.C_REWARD_1.roi_front=(1065,120,10,10)
+    # self.C_REWARD_1.roi_back=(1065,120,10,10)
+    if self.click(self.C_REWARD_1):
+        print("click 1")
+    if not self.appear(self.I_WIN):
+        self.screenshot()
+        if self.close_yyb_popup_ads():
+            print("2")
+        print("3")
