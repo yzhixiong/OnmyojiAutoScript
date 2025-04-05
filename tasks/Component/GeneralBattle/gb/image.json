@@ -51,7 +51,7 @@
     "roiBack": "351,58,197,207",
     "method": "Template matching",
     "threshold": 0.8,
-    "description": "失败"
+    "description": "无蒙层失败"
   },
   {
     "itemName": "false2",
@@ -60,7 +60,7 @@
     "roiBack": "351,58,197,207",
     "method": "Template matching",
     "threshold": 0.8,
-    "description": "无蒙层失败"
+    "description": "有蒙层失败"
   },
   {
     "itemName": "preset_ensure",

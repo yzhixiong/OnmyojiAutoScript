@@ -24,8 +24,8 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
 
     def run(self) -> bool:
         # 使用二值化判断是否出现遮罩层
-        self.I_FALSE.method = 'Binarize matching'
-        self.I_FALSE.bin_threshold = 110
+        self.I_FALSE2.method = 'Binarize matching'
+        self.I_FALSE2.bin_threshold = 110
 
         # 御魂切换方式一
         if self.config.orochi.switch_soul.enable:
@@ -482,9 +482,9 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
                 battle_res = True
                 break
 
-            if self.appear(self.I_FALSE2):
+            if self.appear(self.I_FALSE):
                 logger.warning('False battle')
-                self.ui_click_until_disappear(self.I_FALSE)
+                self.ui_click_until_disappear(self.I_FALSE2)
                 break
 
             # 如果开启战斗过程随机滑动
@@ -527,16 +527,17 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
 if __name__ == '__main__':
     from module.config.config import Config
     from module.device.device import Device
+    from module.base.utils import save_image
 
     c = Config('oas1')
     d = Device(c)
     t = ScriptTask(c, d)
 
-    t.run()
+    # t.run()
 
     d.screenshot()
     #
-    # # save_image(d.image, "./tasks/Orochi/1.png")
+    save_image(d.image, "./tasks/Orochi/1.png")
     #
     # # 有遮罩层
     # # file = r'./tasks/Orochi/1.png'
