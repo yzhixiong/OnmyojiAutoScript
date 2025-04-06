@@ -1,0 +1,26 @@
+[
+  {
+    "itemName": "shikigami_1",
+    "roiFront": "346,177,125,64",
+    "roiBack": "346,177,125,64",
+    "description": "切换至式神1"
+  },
+  {
+    "itemName": "shikigami_2",
+    "roiFront": "340,275,125,64",
+    "roiBack": "340,275,125,64",
+    "description": "切换至式神2"
+  },
+  {
+    "itemName": "shikigami_3",
+    "roiFront": "343,368,125,64",
+    "roiBack": "343,368,125,64",
+    "description": "切换至式神3"
+  },
+  {
+    "itemName": "shikigami_debris_entry",
+    "roiFront": "162,172,129,209",
+    "roiBack": "162,172,129,209",
+    "description": "description"
+  }
+]

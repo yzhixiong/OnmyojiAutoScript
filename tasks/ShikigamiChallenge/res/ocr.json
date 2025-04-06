@@ -1,0 +1,29 @@
+[
+  {
+    "itemName": "shikigami_name",
+    "roiFront": "611,184,36,127",
+    "roiBack": "611,184,36,127",
+    "mode": "Single",
+    "method": "Default",
+    "keyword": "",
+    "description": "式神名称"
+  },
+  {
+    "itemName": "challenge_ticket",
+    "roiFront": "545,13,96,33",
+    "roiBack": "545,13,96,33",
+    "mode": "Digit",
+    "method": "Default",
+    "keyword": "",
+    "description": "挑战券数量"
+  },
+  {
+    "itemName": "shikigami_debris_name",
+    "roiFront": "247,194,105,32",
+    "roiBack": "229,180,152,48",
+    "mode": "Full",
+    "method": "Default",
+    "keyword": "",
+    "description": "式神碎片副本式神名称"
+  }
+]

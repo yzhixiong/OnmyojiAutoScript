@@ -1,0 +1,9 @@
+[
+  {
+    "itemName": "shikigami_debris_select",
+    "roiFront": "330,316,84,34",
+    "roiBack": "325,196,87,33",
+    "mode": "default",
+    "description": "下滑"
+  }
+]

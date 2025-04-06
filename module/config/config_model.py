@@ -29,6 +29,7 @@ from tasks.KekkaiUtilize.config import KekkaiUtilize
 from tasks.KekkaiActivation.config import KekkaiActivation
 from tasks.DemonEncounter.config import DemonEncounter
 from tasks.DailyTrifles.config import DailyTrifles
+from tasks.ShikigamiChallenge.config import ShikigamiChallenge
 from tasks.TalismanPass.config import TalismanPass
 from tasks.Pets.config import Pets
 from tasks.SoulsTidy.config import SoulsTidy
@@ -127,6 +128,7 @@ class ConfigModel(ConfigBase):
     hyakkiyakou: Hyakkiyakou = Field(default_factory=Hyakkiyakou)
     hero_test: HeroTest = Field(default_factory=HeroTest)
     find_jade: FindJade = Field(default_factory=FindJade)
+    shikigami_challenge: ShikigamiChallenge = Field(default_factory=ShikigamiChallenge)
 
     # 这些是每周任务
     true_orochi: TrueOrochi = Field(default_factory=TrueOrochi)

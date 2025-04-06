@@ -149,7 +149,8 @@ class BaseExploration(GameUi, GeneralBattle, GeneralRoom, GeneralInvite, Replace
             if self.appear_then_click(self.I_UI_CONFIRM_SAMLL, interval=1):
                 continue
             self.device.click_record_clear()
-            self.swipe(self.S_SWIPE_LEVEL_UP)
+            self.swipe(self.S_SWIPE_LEVEL_UP, interval=2)
+            time.sleep(2)
             swipeCount += 1
             if swipeCount >= 25:
                 return False

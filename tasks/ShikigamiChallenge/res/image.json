@@ -1,0 +1,155 @@
+[
+  {
+    "itemName": "switch_challenge",
+    "imageName": "res_switch_challenge.png",
+    "roiFront": "1062,365,67,54",
+    "roiBack": "1062,365,67,54",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "切换到挑战"
+  },
+  {
+    "itemName": "fire_challenge",
+    "imageName": "res_fire_challenge.png",
+    "roiFront": "883,514,121,47",
+    "roiBack": "863,481,169,95",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "挑战"
+  },
+  {
+    "itemName": "shikigami_1",
+    "imageName": "res_shikigami_1.png",
+    "roiFront": "483,189.5,25,38",
+    "roiBack": "472,173,56,61",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "式神1"
+  },
+  {
+    "itemName": "shikigami_2",
+    "imageName": "res_shikigami_2.png",
+    "roiFront": "489,284,21,40",
+    "roiBack": "472,284,56,61",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "式神2"
+  },
+  {
+    "itemName": "shikigami_3",
+    "imageName": "res_shikigami_3.png",
+    "roiFront": "489,380,21,37",
+    "roiBack": "472,380,56,61",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "式神3"
+  },
+  {
+    "itemName": "not_shikigami",
+    "imageName": "res_not_shikigami.png",
+    "roiFront": "273,178,41,41",
+    "roiBack": "273,178,41,41",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "未发现式神"
+  },
+  {
+    "itemName": "challenge_page_check",
+    "imageName": "res_challenge_page_check.png",
+    "roiFront": "1079,386,33,32",
+    "roiBack": "1079,386,33,32",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "description"
+  },
+  {
+    "itemName": "shikigami_debris_entry_x5",
+    "imageName": "res_shikigami_debris_entry_x5.png",
+    "roiFront": "859,229,21,21",
+    "roiBack": "563,72,505,427",
+    "method": "Template matching",
+    "threshold": 0.6,
+    "description": "入口-契约碎片"
+  },
+  {
+    "itemName": "shikigami_debris_entry_x4",
+    "imageName": "res_shikigami_debris_entry_x4.png",
+    "roiFront": "896,210,21,21",
+    "roiBack": "563,72,505,427",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "入口-契约碎片"
+  },
+  {
+    "itemName": "shikigami_debris_entry_x3",
+    "imageName": "res_shikigami_debris_entry_x3.png",
+    "roiFront": "936,191,21,21",
+    "roiBack": "563,72,505,427",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "入口-契约碎片"
+  },
+  {
+    "itemName": "shikigami_debris_entry_x2",
+    "imageName": "res_shikigami_debris_entry_x2.png",
+    "roiFront": "975,169,21,21",
+    "roiBack": "563,72,505,427",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "入口-契约碎片"
+  },
+  {
+    "itemName": "shikigami_debris_entry_x1",
+    "imageName": "res_shikigami_debris_entry_x1.png",
+    "roiFront": "790,217,21,21",
+    "roiBack": "563,72,505,427",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "入口-契约碎片"
+  },
+  {
+    "itemName": "shikigami_debris_select",
+    "imageName": "res_shikigami_debris_select.png",
+    "roiFront": "421,237,16,17",
+    "roiBack": "414,185,33,95",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "查询未挑战的行"
+  },
+  {
+    "itemName": "shikigami_debris_entry_2",
+    "imageName": "res_shikigami_debris_entry_2.png",
+    "roiFront": "95,168,37,43",
+    "roiBack": "95,168,37,43",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "入口-式神碎片"
+  },
+  {
+    "itemName": "shikigami_debris_check",
+    "imageName": "res_shikigami_debris_check.png",
+    "roiFront": "592,151,112,30",
+    "roiBack": "592,151,112,30",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "式神碎片"
+  },
+  {
+    "itemName": "shikigami_debris_fire",
+    "imageName": "res_shikigami_debris_fire.png",
+    "roiFront": "910,534,139,57",
+    "roiBack": "910,534,139,57",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "式神碎片挑战按钮"
+  },
+  {
+    "itemName": "shikigami_debris_no",
+    "imageName": "res_shikigami_debris_no.png",
+    "roiFront": "206,165,33,41",
+    "roiBack": "206,165,33,41",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "description"
+  }
+]
