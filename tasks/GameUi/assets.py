@@ -181,11 +181,11 @@ class GameUiAssets:
 
 	# Image Rule Assets
 	# description 
-	I_MAIN_GOTO_SUMMON = RuleImage(roi_front=(1090,236,26,21), roi_back=(1090,236,26,21), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_main_goto_summon.png")
+	I_MAIN_GOTO_SUMMON = RuleImage(roi_front=(1073,174,57,65), roi_back=(571,153,586,124), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_main_goto_summon.png")
 	# description 
-	I_SUMMON_GOTO_MAIN = RuleImage(roi_front=(27,5,49,51), roi_back=(27,5,49,51), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_summon_goto_main.png")
+	I_SUMMON_GOTO_MAIN = RuleImage(roi_front=(27,5,49,51), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_summon_goto_main.png")
 	# description 
-	I_CHECK_SUMMON = RuleImage(roi_front=(581,594,68,66), roi_back=(581,594,68,66), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_check_summon.png")
+	I_CHECK_SUMMON = RuleImage(roi_front=(581,594,68,66), roi_back=(316,528,594,174), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_check_summon.png")
 	# 就是一个红叉 
 	I_REALM_RAID_GOTO_EXPLORATION = RuleImage(roi_front=(1192,107,36,43), roi_back=(1192,107,36,43), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_realm_raid_goto_exploration.png")
 	# description 
