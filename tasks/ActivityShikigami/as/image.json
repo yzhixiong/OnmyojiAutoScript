@@ -38,7 +38,7 @@
   {
     "itemName": "lock",
     "imageName": "as_lock.png",
-    "roiFront": "827,655,25,32",
+    "roiFront": "816,650,24,22",
     "roiBack": "749,592,139,116",
     "method": "Template matching",
     "threshold": 0.8,
@@ -47,7 +47,7 @@
   {
     "itemName": "unlock",
     "imageName": "as_unlock.png",
-    "roiFront": "823,654,28,28",
+    "roiFront": "818,651,18,21",
     "roiBack": "776,610,112,87",
     "method": "Template matching",
     "threshold": 0.8,
@@ -56,7 +56,7 @@
   {
     "itemName": "fire",
     "imageName": "as_fire.png",
-    "roiFront": "1140,583,84,78",
+    "roiFront": "1141,592,64,59",
     "roiBack": "1099,536,150,160",
     "method": "Template matching",
     "threshold": 0.7,

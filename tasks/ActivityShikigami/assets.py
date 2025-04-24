@@ -53,11 +53,11 @@ class ActivityShikigamiAssets:
 	# 归鹿之途 
 	I_DRUM = RuleImage(roi_front=(327,627,145,28), roi_back=(256,462,301,232), threshold=0.8, method="Template matching", file="./tasks/ActivityShikigami/as/as_drum.png")
 	# 上锁图标 
-	I_LOCK = RuleImage(roi_front=(827,655,25,32), roi_back=(749,592,139,116), threshold=0.8, method="Template matching", file="./tasks/ActivityShikigami/as/as_lock.png")
+	I_LOCK = RuleImage(roi_front=(816,650,24,22), roi_back=(749,592,139,116), threshold=0.8, method="Template matching", file="./tasks/ActivityShikigami/as/as_lock.png")
 	# 还未上锁图片 
-	I_UNLOCK = RuleImage(roi_front=(823,654,28,28), roi_back=(776,610,112,87), threshold=0.8, method="Template matching", file="./tasks/ActivityShikigami/as/as_unlock.png")
+	I_UNLOCK = RuleImage(roi_front=(818,651,18,21), roi_back=(776,610,112,87), threshold=0.8, method="Template matching", file="./tasks/ActivityShikigami/as/as_unlock.png")
 	# 点击战斗 
-	I_FIRE = RuleImage(roi_front=(1140,583,84,78), roi_back=(1099,536,150,160), threshold=0.7, method="Template matching", file="./tasks/ActivityShikigami/as/as_fire.png")
+	I_FIRE = RuleImage(roi_front=(1141,592,64,59), roi_back=(1099,536,150,160), threshold=0.7, method="Template matching", file="./tasks/ActivityShikigami/as/as_fire.png")
 	# 体力按钮 
 	I_AP = RuleImage(roi_front=(1093,667,23,24), roi_back=(1088,638,103,71), threshold=0.8, method="Template matching", file="./tasks/ActivityShikigami/as/as_ap.png")
 	# 活动体力 
