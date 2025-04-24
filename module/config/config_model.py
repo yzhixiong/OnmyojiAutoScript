@@ -58,6 +58,7 @@ from tasks.FrogBoss.config import FrogBoss
 from tasks.FloatParade.config import FloatParade
 from tasks.Quiz.config import Quiz
 from tasks.KittyShop.config import KittyShop
+from tasks.DyeTrials.config import DyeTrials
 # ----------------------------------------------------------------------------------------------------------------------
 
 # 肝帝专属---------------------------------------------------------------------------------------------------------------
@@ -120,6 +121,7 @@ class ConfigModel(ConfigBase):
     float_parade: FloatParade = Field(default_factory=FloatParade)
     quiz: Quiz = Field(default_factory=Quiz)
     kitty_shop: KittyShop = Field(default_factory=KittyShop)
+    dye_trials: DyeTrials = Field(default_factory=DyeTrials)
 
     # 这些是肝帝专属
     bondling_fairyland: BondlingFairyland = Field(default_factory=BondlingFairyland)
