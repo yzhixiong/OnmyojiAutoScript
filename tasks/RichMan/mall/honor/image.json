@@ -2,17 +2,17 @@
   {
     "itemName": "honor_blue",
     "imageName": "honor_honor_blue.png",
-    "roiFront": "868,145,100,100",
+    "roiFront": "828,145,175,100",
     "roiBack": "154,113,864,476",
     "method": "Template matching",
-    "threshold": 0.8,
+    "threshold": 0.5,
     "description": "蓝票"
   },
   {
     "itemName": "honor_black",
     "imageName": "honor_honor_black.png",
-    "roiFront": "646,395,100,100",
-    "roiBack": "145,96,883,491",
+    "roiFront": "615,309,149,104",
+    "roiBack": "148,71,1011,549",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "黑蛋碎片"

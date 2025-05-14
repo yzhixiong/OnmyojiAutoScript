@@ -107,9 +107,9 @@ class RichManAssets:
 
 	# Image Rule Assets
 	# 蓝票 
-	I_HONOR_BLUE = RuleImage(roi_front=(868,145,100,100), roi_back=(154,113,864,476), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_blue.png")
+	I_HONOR_BLUE = RuleImage(roi_front=(828,145,175,100), roi_back=(154,113,864,476), threshold=0.5, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_blue.png")
 	# 黑蛋碎片 
-	I_HONOR_BLACK = RuleImage(roi_front=(646,395,100,100), roi_back=(145,96,883,491), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_black.png")
+	I_HONOR_BLACK = RuleImage(roi_front=(615,309,149,104), roi_back=(148,71,1011,549), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_black.png")
 	# 三星白蛋 
 	I_HONOR_WHITE = RuleImage(roi_front=(424,399,100,100), roi_back=(155,127,841,388), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_white.png")
 	# 判断是否滑动到底 
