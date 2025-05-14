@@ -5,7 +5,7 @@
     "roiFront": "1098,611,56,64",
     "roiBack": "1084,589,93,106",
     "method": "Template matching",
-    "threshold": 0.7,
+    "threshold": 0.5,
     "description": "式神录"
   },
   {
@@ -14,8 +14,8 @@
     "roiFront": "992,614,51,60",
     "roiBack": "992,614,51,60",
     "method": "Template matching",
-    "threshold": 0.8,
-    "description": "description"
+    "threshold": 0.5,
+    "description": "进入阴阳术"
   },
   {
     "itemName": "main_goto_friends",
@@ -23,8 +23,8 @@
     "roiFront": "879,623,55,55",
     "roiBack": "867,606,79,77",
     "method": "Template matching",
-    "threshold": 0.7,
-    "description": "description"
+    "threshold": 0.5,
+    "description": "进入好友"
   },
   {
     "itemName": "main_goto_daily",
@@ -32,7 +32,7 @@
     "roiFront": "779,612,51,67",
     "roiBack": "754,595,89,97",
     "method": "Template matching",
-    "threshold": 0.7,
+    "threshold": 0.5,
     "description": "进入花合战"
   },
   {
@@ -41,8 +41,8 @@
     "roiFront": "663,661,41,22",
     "roiBack": "644,613,81,78",
     "method": "Template matching",
-    "threshold": 0.7,
-    "description": "description"
+    "threshold": 0.5,
+    "description": "进入商店"
   },
   {
     "itemName": "main_goto_guild",
@@ -50,8 +50,8 @@
     "roiFront": "540,611,50,54",
     "roiBack": "540,611,50,54",
     "method": "Template matching",
-    "threshold": 0.7,
-    "description": "description"
+    "threshold": 0.5,
+    "description": "进入阴阳寮"
   },
   {
     "itemName": "main_goto_team",
@@ -59,8 +59,8 @@
     "roiFront": "437,625,38,48",
     "roiBack": "366,606,192,83",
     "method": "Template matching",
-    "threshold": 0.7,
-    "description": "description"
+    "threshold": 0.5,
+    "description": "进入组队"
   },
   {
     "itemName": "main_goto_collection",
@@ -68,8 +68,8 @@
     "roiFront": "92,621,36,41",
     "roiBack": "51,596,159,85",
     "method": "Template matching",
-    "threshold": 0.7,
-    "description": "description"
+    "threshold": 0.5,
+    "description": "进入图鉴"
   },
   {
     "itemName": "check_records",
