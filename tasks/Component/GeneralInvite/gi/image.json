@@ -162,6 +162,15 @@
     "description": "点击邀请"
   },
   {
+    "itemName": "invite_ensure_wanted_quests",
+    "imageName": "gi_invite_ensure_wanted_quests.png",
+    "roiFront": "503,546,132,60",
+    "roiBack": "503,546,132,60",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "悬赏封印点击邀请"
+  },
+  {
     "itemName": "selected",
     "imageName": "gi_selected.png",
     "roiFront": "895,373,33,32",
