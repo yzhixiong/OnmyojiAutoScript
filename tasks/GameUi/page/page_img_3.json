@@ -38,8 +38,8 @@
   {
     "itemName": "main_goto_mall",
     "imageName": "page_main_goto_mall.png",
-    "roiFront": "663,661,41,22",
-    "roiBack": "644,613,81,78",
+    "roiFront": "228,632,38,25",
+    "roiBack": "209,604,81,78",
     "method": "Template matching",
     "threshold": 0.5,
     "description": "进入商店"
@@ -47,8 +47,8 @@
   {
     "itemName": "main_goto_guild",
     "imageName": "page_main_goto_guild.png",
-    "roiFront": "540,611,50,54",
-    "roiBack": "540,611,50,54",
+    "roiFront": "553,620,21,21",
+    "roiBack": "535,600,97,85",
     "method": "Template matching",
     "threshold": 0.5,
     "description": "进入阴阳寮"

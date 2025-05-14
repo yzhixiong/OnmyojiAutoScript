@@ -137,9 +137,9 @@ class GameUiAssets:
 	# 进入花合战 
 	I_MAIN_GOTO_DAILY = RuleImage(roi_front=(779,612,51,67), roi_back=(754,595,89,97), threshold=0.5, method="Template matching", file="./tasks/GameUi/page/page_main_goto_daily.png")
 	# 进入商店 
-	I_MAIN_GOTO_MALL = RuleImage(roi_front=(663,661,41,22), roi_back=(644,613,81,78), threshold=0.5, method="Template matching", file="./tasks/GameUi/page/page_main_goto_mall.png")
+	I_MAIN_GOTO_MALL = RuleImage(roi_front=(228,632,38,25), roi_back=(209,604,81,78), threshold=0.5, method="Template matching", file="./tasks/GameUi/page/page_main_goto_mall.png")
 	# 进入阴阳寮 
-	I_MAIN_GOTO_GUILD = RuleImage(roi_front=(540,611,50,54), roi_back=(540,611,50,54), threshold=0.5, method="Template matching", file="./tasks/GameUi/page/page_main_goto_guild.png")
+	I_MAIN_GOTO_GUILD = RuleImage(roi_front=(553,620,21,21), roi_back=(535,600,97,85), threshold=0.5, method="Template matching", file="./tasks/GameUi/page/page_main_goto_guild.png")
 	# 进入组队 
 	I_MAIN_GOTO_TEAM = RuleImage(roi_front=(437,625,38,48), roi_back=(366,606,192,83), threshold=0.5, method="Template matching", file="./tasks/GameUi/page/page_main_goto_team.png")
 	# 进入图鉴 
