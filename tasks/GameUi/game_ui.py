@@ -79,7 +79,7 @@ class GameUi(BaseTask, GameUiAssets):
         """
         判断庭院界面卷轴是否打开
         """
-        return self.appear(RestartAssets.I_LOGIN_SCROOLL_CLOSE)
+        return not self.appear(RestartAssets.I_LOGIN_SCROOLL_OPEN)
 
     def ensure_button_execute(self, button):
         """
@@ -136,7 +136,7 @@ class GameUi(BaseTask, GameUiAssets):
                     logger.attr("UI", page.name)
                     self.ui_current = page
                     if page == page_main and self.ensure_scroll_open():
-                        self.ui_click_until_disappear(RestartAssets.I_LOGIN_SCROOLL_CLOSE)
+                        self.click(RestartAssets.C_OPEN_SCROOLL)
                     return page
             # Try to close unknown page
             for close in self.ui_close:

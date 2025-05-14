@@ -81,7 +81,7 @@ class ExpTest(RightActivity, FastDevice, RestartAssets, ExplorationAssets):
         self.ui_get_current_page()
         self.ui_goto(page_town)
         self.right_close()
-        self.ui_click(self.I_LOGIN_SCROOLL_OPEN, self.I_LOGIN_SCROOLL_CLOSE, interval=1)
+        self.ui_click(self.C_OPEN_SCROOLL, self.I_LOGIN_SCROOLL_OPEN, interval=1)
 
     def _go(self):
         self.ui_get_current_page()

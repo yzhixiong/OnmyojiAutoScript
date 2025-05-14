@@ -5,11 +5,12 @@
 from module.base.timer import Timer
 from module.exception import RequestHumanTakeover, GameTooManyClickError, GameStuckError
 from module.logger import logger
+from tasks.GameUi.assets import GameUiAssets
 from tasks.Restart.assets import RestartAssets
 from tasks.base_task import BaseTask
 
 
-class LoginHandler(BaseTask, RestartAssets):
+class LoginHandler(BaseTask, RestartAssets, GameUiAssets):
     character: str
 
     def __init__(self, *wargs, **kwargs):
@@ -40,19 +41,20 @@ class LoginHandler(BaseTask, RestartAssets):
             self.screenshot()
 
             # 确认进入庭院
-            if self.appear_then_click(self.I_LOGIN_SCROOLL_CLOSE, interval=2, threshold=0.9):
-                logger.info('Open scroll')
-                continue
-            if self.appear(self.I_LOGIN_SCROOLL_OPEN, interval=0.2):
-                if confirm_timer.reached():
-                    logger.info('Login to main confirm')
-                    break
-            else:
-                confirm_timer.reset()
-            # 登录成功
-            if self.appear(self.I_LOGIN_SCROOLL_OPEN, interval=0.5):
-                logger.info('Login success')
-                login_success = True
+            if self.appear(self.I_CHECK_MAIN):
+                if self.ui_click(self.C_OPEN_SCROOLL, self.I_LOGIN_SCROOLL_OPEN, interval=1):
+                    logger.info('Open scroll')
+                    continue
+                if self.appear(self.I_LOGIN_SCROOLL_OPEN, interval=0.5):
+                    if confirm_timer.reached():
+                        logger.info('Login to main confirm')
+                        break
+                else:
+                    confirm_timer.reset()
+                # 登录成功
+                if self.appear(self.I_LOGIN_SCROOLL_OPEN, interval=0.5):
+                    logger.info('Login success')
+                    login_success = True
 
             # 网络异常
             # if self.ocr_appear(self.O_LOGIN_NETWORK):
