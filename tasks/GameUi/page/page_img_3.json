@@ -11,8 +11,8 @@
   {
     "itemName": "main_goto_onmyodo",
     "imageName": "page_main_goto_onmyodo.png",
-    "roiFront": "992,614,51,60",
-    "roiBack": "992,614,51,60",
+    "roiFront": "1017,621,23,34",
+    "roiBack": "995,601,82,74",
     "method": "Template matching",
     "threshold": 0.5,
     "description": "进入阴阳术"
@@ -20,8 +20,8 @@
   {
     "itemName": "main_goto_friends",
     "imageName": "page_main_goto_friends.png",
-    "roiFront": "879,623,55,55",
-    "roiBack": "867,606,79,77",
+    "roiFront": "895,623,21,24",
+    "roiBack": "866,606,89,80",
     "method": "Template matching",
     "threshold": 0.5,
     "description": "进入好友"
@@ -38,8 +38,8 @@
   {
     "itemName": "main_goto_mall",
     "imageName": "page_main_goto_mall.png",
-    "roiFront": "228,632,38,25",
-    "roiBack": "209,604,81,78",
+    "roiFront": "673,630,38,25",
+    "roiBack": "649,599,81,78",
     "method": "Template matching",
     "threshold": 0.5,
     "description": "进入商店"
@@ -56,8 +56,8 @@
   {
     "itemName": "main_goto_team",
     "imageName": "page_main_goto_team.png",
-    "roiFront": "437,625,38,48",
-    "roiBack": "366,606,192,83",
+    "roiFront": "445,625,30,48",
+    "roiBack": "428,602,80,87",
     "method": "Template matching",
     "threshold": 0.5,
     "description": "进入组队"
@@ -65,8 +65,8 @@
   {
     "itemName": "main_goto_collection",
     "imageName": "page_main_goto_collection.png",
-    "roiFront": "92,621,36,41",
-    "roiBack": "51,596,159,85",
+    "roiFront": "101,619,25,22",
+    "roiBack": "92,598,73,86",
     "method": "Template matching",
     "threshold": 0.5,
     "description": "进入图鉴"
