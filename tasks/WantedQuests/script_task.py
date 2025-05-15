@@ -413,7 +413,15 @@ class ScriptTask(WQExplore, SecretScriptTask, WantedQuestsAssets):
     def secret(self, goto, num=1):
         self.ui_click(goto, self.I_WQSE_FIRE)
         for i in range(num):
-            self.wait_until_appear(self.I_WQSE_FIRE)
+            while 1:
+                in_fire_page = self.wait_until_appear(self.I_WQSE_FIRE, wait_time=3)
+                if in_fire_page:
+                    break
+                # 回到了周秘闻
+                if self.appear(self.I_UI_BACK_BLUE) and self.appear(self.I_SE_PLACEMENT):
+                    break
+            if not in_fire_page:
+                break
             # self.ui_click_until_disappear(self.I_WQSE_FIRE)
             # 又臭又长的对话针的是服了这个网易
             click_count = 0
