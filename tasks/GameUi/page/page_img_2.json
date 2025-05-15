@@ -2,8 +2,8 @@
   {
     "itemName": "main_goto_town",
     "imageName": "page_main_goto_town.png",
-    "roiFront": "706,249,61,57",
-    "roiBack": "200,120,951,298",
+    "roiFront": "737,289,34,21",
+    "roiBack": "737,289,34,21",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "description"
@@ -129,7 +129,7 @@
     "itemName": "demon_encounter_goto_town",
     "imageName": "page_demon_encounter_goto_town.png",
     "roiFront": "28,20,56,52",
-    "roiBack": "3,4,100,100",
+    "roiBack": "28,20,56,52",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "description"
