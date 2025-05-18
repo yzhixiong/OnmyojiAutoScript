@@ -14,7 +14,7 @@
     "roiFront": "1065,620,67,61",
     "roiBack": "1065,620,67,61",
     "method": "Template matching",
-    "threshold": 0.8,
+    "threshold": 0.6,
     "description": "寮结界"
   },
   {

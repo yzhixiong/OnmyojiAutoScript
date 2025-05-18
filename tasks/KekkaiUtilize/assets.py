@@ -14,7 +14,7 @@ class KekkaiUtilizeAssets:
 	# 寮信息 
 	I_GUILD_INFO = RuleImage(roi_front=(1157,599,97,91), roi_back=(1157,599,97,91), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_info.png")
 	# 寮结界 
-	I_GUILD_REALM = RuleImage(roi_front=(1065,620,67,61), roi_back=(1065,620,67,61), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_realm.png")
+	I_GUILD_REALM = RuleImage(roi_front=(1065,620,67,61), roi_back=(1065,620,67,61), threshold=0.6, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_realm.png")
 	# 祈愿 
 	I_GUILD_WISH = RuleImage(roi_front=(965,622,60,63), roi_back=(965,622,60,63), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_wish.png")
 	# 神灶 
@@ -29,7 +29,7 @@ class KekkaiUtilizeAssets:
 
 	# Image Rule Assets
 	# 育成 
-	I_SHI_GROWN = RuleImage(roi_front=(595,291,35,38), roi_back=(530,254,181,198), threshold=0.7, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_shi_grown.png")
+	I_SHI_GROWN = RuleImage(roi_front=(595,291,35,38), roi_back=(530,254,181,198), threshold=0.6, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_shi_grown.png")
 	# 结界卡 
 	I_SHI_CARD = RuleImage(roi_front=(886,290,38,56), roi_back=(870,276,75,86), threshold=0.7, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_shi_card.png")
 	# description 
