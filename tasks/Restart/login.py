@@ -41,7 +41,7 @@ class LoginHandler(BaseTask, RestartAssets, GameUiAssets):
             self.screenshot()
 
             # 确认进入庭院
-            if self.appear(self.I_CHECK_MAIN):
+            if self.appear(self.I_CHECK_MAIN) and self.appear(self.I_MAIN_GOTO_EXPLORATION):
                 if self.ui_click(self.C_OPEN_SCROOLL, self.I_LOGIN_SCROOLL_OPEN, interval=1):
                     logger.info('Open scroll')
                     continue
