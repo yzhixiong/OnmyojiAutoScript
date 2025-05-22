@@ -19,6 +19,7 @@ class ConfigManual:
         > CollectiveMissions
         > Pets > TalismanPass > Delegation > Hyakkiyakou
         > Secret > WeeklyTrifles > MysteryShop > Duel > MetaDemon > FrogBoss > FloatParade > Quiz > KittyShop > DyeTrials
+        > Wish
         """
 
     DEVICE_OVER_HTTP = False

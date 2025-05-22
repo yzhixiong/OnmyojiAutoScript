@@ -234,20 +234,27 @@ class BaseTask(GlobalGameAssets, CostumeBase):
 
     def wait_until_appear_then_click(self,
                                      target: RuleImage,
-                                     action: Union[RuleClick, RuleLongClick] = None) -> None:
+                                     action: Union[RuleClick, RuleLongClick] = None,
+                                     wait_time: int = None) -> bool:
         """
         等待直到出现目标，然后点击
         :param action:
         :param target:
+        :param wait_time:
         :return:
         """
-        self.wait_until_appear(target)
-        if action is None:
-            self.device.click(target.coord(), control_name=target.name)
-        elif isinstance(action, RuleLongClick):
-            self.device.long_click(target.coord(), duration=action.duration / 1000, control_name=target.name)
-        elif isinstance(action, RuleClick):
-            self.device.click(target.coord(), control_name=target.name)
+        if self.wait_until_appear(target, wait_time=wait_time):
+            if action is None:
+                x, y = target.coord()
+                self.device.click(x, y, control_name=target.name)
+            elif isinstance(action, RuleLongClick):
+                x, y = target.coord()
+                self.device.long_click(x, y, duration=action.duration / 1000, control_name=target.name)
+            elif isinstance(action, RuleClick):
+                x, y = target.coord()
+                self.device.click(x, y, control_name=target.name)
+            return True
+        return False
 
     def wait_until_disappear(self, target: RuleImage) -> None:
         while 1:

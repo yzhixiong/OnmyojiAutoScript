@@ -1,0 +1,92 @@
+[
+  {
+    "itemName": "enter_wish",
+    "imageName": "res_enter_wish.png",
+    "roiFront": "971,636,50,36",
+    "roiBack": "971,636,50,36",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "进入祈愿"
+  },
+  {
+    "itemName": "enter_wish_check",
+    "imageName": "res_enter_wish_check.png",
+    "roiFront": "1177,257,37,73",
+    "roiBack": "1177,257,37,73",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "进入祈愿校验"
+  },
+  {
+    "itemName": "bestow",
+    "imageName": "res_bestow.png",
+    "roiFront": "843,284,100,39",
+    "roiBack": "807,261,188,90",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "赠与按钮"
+  },
+  {
+    "itemName": "bestow_confirm",
+    "imageName": "res_bestow_confirm.png",
+    "roiFront": "669,401,175,62",
+    "roiBack": "669,401,175,62",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "赠与确认"
+  },
+  {
+    "itemName": "switch_friend_1",
+    "imageName": "res_switch_friend_1.png",
+    "roiFront": "170,608,200,48",
+    "roiBack": "170,608,200,48",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "切换至好友"
+  },
+  {
+    "itemName": "switch_friend_2",
+    "imageName": "res_switch_friend_2.png",
+    "roiFront": "177,543,192,52",
+    "roiBack": "177,543,192,52",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "切换至好友2"
+  },
+  {
+    "itemName": "switch_friend_check",
+    "imageName": "res_switch_friend_check.png",
+    "roiFront": "173,605,199,50",
+    "roiBack": "173,605,199,50",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "切换至好友校验"
+  },
+  {
+    "itemName": "switch_end_check",
+    "imageName": "res_switch_end_check.png",
+    "roiFront": "109,559,41,41",
+    "roiBack": "109,559,41,41",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "下滑到底"
+  },
+  {
+    "itemName": "switch_end_check_2",
+    "imageName": "res_switch_end_check_2.png",
+    "roiFront": "902,185,107,39",
+    "roiBack": "888,139,145,101",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "碎片不足"
+  },
+  {
+    "itemName": "switch_end_check_3",
+    "imageName": "res_switch_end_check_3.png",
+    "roiFront": "883,125,147,35",
+    "roiBack": "838,75,216,121",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "亲密度不足足"
+  }
+]
