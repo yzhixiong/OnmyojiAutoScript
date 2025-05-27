@@ -160,16 +160,31 @@ class Special(Buy, MallNavbar):
         result = self.O_SP_RES_NUMBER.ocr(self.device.image)
         result = result.replace('？', '2').replace('?', '2').replace(':', '；').replace('火', '次').replace('教', '数')
         try:
-            if '：' in result:
-                result = re.findall(r'剩余购买次数：(\d+)', result)[0]
-                result = int(result)
-            else:
-                result = re.findall(r'本周剩余数量(\d+)', result)[0]
-                result = int(result)
+            result = self._find_remain(result)
         except:
             result = 0
         logger.info(f'Remain [{result}]')
         return result
+
+
+    def _find_remain(self, result: str) -> int:
+        """
+        检查这个种类的剩余， 要求必须这个出现在当前的页面
+        :param target:
+        :return:
+        """
+        findList = re.findall(r'剩余购买次数：(\d+)', result)
+        if (len(findList)) > 0:
+            return int(findList[0])
+
+        findList = re.findall(r'剩余购买数：(\d+)', result)
+        if (len(findList)) > 0:
+            return int(findList[0])
+
+        findList = re.findall(r'本周剩余数量(\d+)', result)
+        if (len(findList)) > 0:
+            return int(findList[0])
+        return 0
 
 
 if __name__ == '__main__':
