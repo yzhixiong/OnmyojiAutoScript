@@ -462,8 +462,6 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
                     if self.click(action_click, interval=1.5):
                         continue
                     if not self.appear(self.I_GREED_GHOST):
-                        if self.close_yyb_popup_ads():
-                            continue
                         break
                 battle_res = True
                 break
@@ -476,8 +474,6 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
                     if self.appear_then_click(self.I_REWARD, action=action_click, interval=1.5):
                         continue
                     if not self.appear(self.I_REWARD):
-                        if self.close_yyb_popup_ads():
-                            continue
                         break
                 battle_res = True
                 break

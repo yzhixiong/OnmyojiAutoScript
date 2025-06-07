@@ -1,8 +1,8 @@
 [
   {
     "itemName": "win_1",
-    "roiFront": "175,102,1054,99",
-    "roiBack": "175,102,1054,99",
+    "roiFront": "175,102,998,99",
+    "roiBack": "175,102,998,99",
     "description": "description"
   },
   {
@@ -13,8 +13,8 @@
   },
   {
     "itemName": "win_3",
-    "roiFront": "1065,117,160,468",
-    "roiBack": "1065,117,160,468",
+    "roiFront": "1065,117,126,468",
+    "roiBack": "1065,117,126,468",
     "description": "description"
   },
   {
@@ -31,8 +31,8 @@
   },
   {
     "itemName": "reward_3",
-    "roiFront": "1092,156,168,437",
-    "roiBack": "1092,156,168,437",
+    "roiFront": "1092,156,115,437",
+    "roiBack": "1092,156,115,437",
     "description": "description"
   }
 ]

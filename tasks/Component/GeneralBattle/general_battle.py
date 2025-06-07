@@ -219,8 +219,6 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
                 if self.appear_then_click(self.I_WIN, action=action_click, interval=0.5):
                     continue
                 if not self.appear(self.I_WIN):
-                    if self.close_yyb_popup_ads():
-                        continue
                     break
             else:
                 # 如果失败且 点击失败后
@@ -242,8 +240,6 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
                     self.appear_then_click(self.I_REWARD_GOLD, action=action_click, interval=1.5):
                 continue
             if not self.appear(self.I_REWARD) and not self.appear(self.I_REWARD_GOLD):
-                if self.close_yyb_popup_ads():
-                    continue
                 break
 
         return win
@@ -537,14 +533,6 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
         return False, True
 
 
-    def close_yyb_popup_ads(self) -> bool:
-        self.wait_until_appear(self.I_YYB_POPUP_ADS, skip_first_screenshot=True, wait_time=1)
-        if self.appear(self.I_YYB_POPUP_ADS, interval=2):
-            logger.info('Close Yyb Popup ads')
-            self.ui_click_until_smt_disappear(self.C_YYB_POPUP_ADS_CLOSE, self.I_YYB_POPUP_ADS, interval=1)
-            return True
-        return False
-
 if __name__ == '__main__':
     from module.config.config import Config
     from module.device.device import Device
@@ -565,6 +553,4 @@ if __name__ == '__main__':
         print("click 1")
     if not self.appear(self.I_WIN):
         self.screenshot()
-        if self.close_yyb_popup_ads():
-            print("2")
         print("3")
