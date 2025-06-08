@@ -63,7 +63,7 @@ class BondlingFairylandAssets:
 
 	# Image Rule Assets
 	# description 
-	I_BF_SEARSH = RuleImage(roi_front=(1133,577,100,100), roi_back=(1133,577,100,100), threshold=0.8, method="Template matching", file="./tasks/BondlingFairyland/bf/bf_bf_searsh.png")
+	I_BF_SEARSH = RuleImage(roi_front=(1155,590,75,67), roi_back=(1155,590,75,67), threshold=0.8, method="Template matching", file="./tasks/BondlingFairyland/bf/bf_bf_searsh.png")
 	# description 
 	I_BF_LOCK = RuleImage(roi_front=(826,653,24,26), roi_back=(826,653,24,26), threshold=0.8, method="Template matching", file="./tasks/BondlingFairyland/bf/bf_bf_lock.png")
 	# description 

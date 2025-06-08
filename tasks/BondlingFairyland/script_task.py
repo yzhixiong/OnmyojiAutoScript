@@ -306,6 +306,8 @@ class ScriptTask(GameUi, GeneralInvite, GeneralRoom, BondlingBattle, SwitchSoul,
                     self.config.notifier.push(title='契灵之境', content='契灵数量已达上限500，请及时处理')
                     success = False
                     break
+            elif bondling_config.bondling_mode == BondlingMode.MODE1:
+                self.run_search(bondling_config)
             else:
                 # 否则就是模式1
                 break
