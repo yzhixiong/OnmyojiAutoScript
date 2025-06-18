@@ -233,6 +233,14 @@ class ScriptTask(GameUi, GeneralInvite, GeneralRoom, BondlingBattle, SwitchSoul,
             if self.is_in_room():
                 logger.info("契灵：进入组队房间！")
                 if self.wait_battle(wait_time=self.config.bondling_fairyland.invite_config.wait_time):
+                    while 1:
+                        self.screenshot()
+                        if not self.appear(self.I_BUFF):
+                            break
+                        if self.appear_then_click(self.I_PREPARE_HIGHLIGHT, interval=1.5):
+                            continue
+                    logger.info("Click prepare ensure button")
+
                     self.run_battle(self.config.bondling_fairyland.battle_config, limit_count=self.limit_count)
                     wait_timer.reset()
                     # 进入战斗流程
