@@ -28,8 +28,8 @@
   },
   {
     "itemName": "remain_ap_activity2",
-    "roiFront": "756,17,52,29",
-    "roiBack": "756,17,52,29",
+    "roiFront": "546,18,60,29",
+    "roiBack": "546,18,60,29",
     "mode": "Digit",
     "method": "Default",
     "keyword": "",
