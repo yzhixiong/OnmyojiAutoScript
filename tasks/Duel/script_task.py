@@ -148,10 +148,16 @@ class ScriptTask(GameUi, GeneralBattle, DuelAssets):
                 self.device.stuck_record_add('BATTLE_STATUS_S')
                 self.wait_until_disappear(self.I_D_WORD_BATTLE)
                 break
-            if current_score <= 1800 and self.appear(self.I_D_PREPARE):
-                # 低段位有的准备
-                self.ui_click(self.I_D_PREPARE, self.I_D_PREPARE_DONE)
-                self.wait_until_disappear(self.I_D_PREPARE_DONE)
+            if self.appear(self.I_D_PREPARE):
+                # 低段位、呱太 有准备
+                while 1:
+                    self.screenshot()
+                    if self.ui_click_until_disappear(self.I_D_PREPARE):
+                        continue
+                    if self.appear(self.I_D_PREPARE_DONE):
+                        break
+                    if self.ocr_appear(self.O_D_AUTO, interval=0.4):
+                        break
                 logger.info('Duel prepare')
                 break
         # 正式进入战斗
