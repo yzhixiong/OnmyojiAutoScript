@@ -1,8 +1,8 @@
 [
   {
     "itemName": "remain_ap",
-    "roiFront": "131,572,42,25",
-    "roiBack": "131,572,42,25",
+    "roiFront": "942,16,68,32",
+    "roiBack": "942,16,68,32",
     "mode": "DigitCounter",
     "method": "Default",
     "keyword": "",
@@ -10,8 +10,8 @@
   },
   {
     "itemName": "remain_ap_activity",
-    "roiFront": "715,18,95,28",
-    "roiBack": "715,18,95,28",
+    "roiFront": "534,18,70,28",
+    "roiBack": "534,18,70,28",
     "mode": "DigitCounter",
     "method": "Default",
     "keyword": "",
@@ -28,11 +28,20 @@
   },
   {
     "itemName": "remain_ap_activity2",
-    "roiFront": "546,18,60,29",
-    "roiBack": "546,18,60,29",
+    "roiFront": "534,18,71,29",
+    "roiBack": "534,18,71,29",
     "mode": "Digit",
     "method": "Default",
     "keyword": "",
     "description": "活动票数（没有百分比）"
+  },
+  {
+    "itemName": "entry_activity",
+    "roiFront": "71,241,98,32",
+    "roiBack": "71,241,98,32",
+    "mode": "Single",
+    "method": "Default",
+    "keyword": "阵练演武",
+    "description": "Ocr-description"
   }
 ]
