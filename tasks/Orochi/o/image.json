@@ -61,5 +61,14 @@
     "method": "Template matching",
     "threshold": 0.8,
     "description": "小小宠物，发现宝藏"
+  },
+  {
+    "itemName": "sy_close",
+    "imageName": "o_sy_close.png",
+    "roiFront": "1047,127,32,31",
+    "roiBack": "1047,127,32,31",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "description"
   }
 ]

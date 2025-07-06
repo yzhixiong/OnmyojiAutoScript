@@ -461,6 +461,8 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
                     action_click = random.choice([self.C_REWARD_1, self.C_REWARD_2, self.C_REWARD_3])
                     if self.click(action_click, interval=1.5):
                         continue
+                    if self.appear_then_click(self.I_SY_CLOSE):
+                        continue
                     if not self.appear(self.I_GREED_GHOST):
                         break
                 battle_res = True
@@ -472,6 +474,8 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
                     self.screenshot()
                     action_click = random.choice([self.C_REWARD_1, self.C_REWARD_2, self.C_REWARD_3])
                     if self.appear_then_click(self.I_REWARD, action=action_click, interval=1.5):
+                        continue
+                    if self.appear_then_click(self.I_SY_CLOSE):
                         continue
                     if not self.appear(self.I_REWARD):
                         break
