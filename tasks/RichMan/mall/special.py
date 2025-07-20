@@ -173,11 +173,11 @@ class Special(Buy, MallNavbar):
         :param target:
         :return:
         """
-        findList = re.findall(r'剩余购买次数：(\d+)', result)
+        findList = re.findall(r'(?:剩余)?购买次数：(\d+)', result)
         if (len(findList)) > 0:
             return int(findList[0])
 
-        findList = re.findall(r'剩余购买数：(\d+)', result)
+        findList = re.findall(r'(?:剩余)?购买数：(\d+)', result)
         if (len(findList)) > 0:
             return int(findList[0])
 
