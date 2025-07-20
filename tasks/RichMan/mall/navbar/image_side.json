@@ -75,7 +75,7 @@
     "itemName": "side_sure_charisma",
     "imageName": "navbar_side_sure_charisma.png",
     "roiFront": "1181,467,59,58",
-    "roiBack": "1158,445,101,106",
+    "roiBack": "1158,445,101,143",
     "method": "Template matching",
     "threshold": 0.7,
     "description": "魅力值"
