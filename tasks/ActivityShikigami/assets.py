@@ -50,7 +50,7 @@ class ActivityShikigamiAssets:
 	I_BACK_GREEN = RuleImage(roi_front=(27,19,34,38), roi_back=(2,1,170,75), threshold=0.8, method="Template matching", file="./tasks/ActivityShikigami/as/as_back_green.png")
 	# 进入爬塔 
 	I_BATTLE = RuleImage(roi_front=(458,238,35,135), roi_back=(407,147,153,315), threshold=0.7, method="Template matching", file="./tasks/ActivityShikigami/as/as_battle.png")
-	# 进入爬塔1
+	# 进入爬塔1 
 	I_BATTLE_1 = RuleImage(roi_front=(541,663,191,26), roi_back=(506,622,273,96), threshold=0.7, method="Template matching", file="./tasks/ActivityShikigami/as/as_battle_1.png")
 	# 归鹿之途 
 	I_DRUM = RuleImage(roi_front=(327,627,145,28), roi_back=(256,462,301,232), threshold=0.8, method="Template matching", file="./tasks/ActivityShikigami/as/as_drum.png")
@@ -67,11 +67,11 @@ class ActivityShikigamiAssets:
 	# 切换按键 
 	I_SWITCH = RuleImage(roi_front=(1214,559,23,23), roi_back=(1204,541,69,56), threshold=0.8, method="Template matching", file="./tasks/ActivityShikigami/as/as_switch.png")
 	# 购买活动的体力 
-	I_BUY_JADE = RuleImage(roi_front=(1004,192,38,42), roi_back=(1004,192,38,42), threshold=0.8, method="Template matching", file="./tasks/ActivityShikigami/as/as_buy_jade.png")
+	I_BUY_JADE = RuleImage(roi_front=(1004,192,38,42), roi_back=(836,619,38,42), threshold=0.8, method="Template matching", file="./tasks/ActivityShikigami/as/as_buy_jade.png")
 	# 增加到最大 
-	I_ADD_MAX = RuleImage(roi_front=(17,24,33,37), roi_back=(17,24,33,37), threshold=0.8, method="Template matching", file="./tasks/ActivityShikigami/as/as_add_max.png")
+	I_ADD_MAX = RuleImage(roi_front=(17,24,33,37), roi_back=(974,524,57,54), threshold=0.8, method="Template matching", file="./tasks/ActivityShikigami/as/as_add_max.png")
 	# description 
-	I_NEW = RuleImage(roi_front=(1004,192,65,52), roi_back=(1004,192,65,52), threshold=0.8, method="Template matching", file="./tasks/ActivityShikigami/as/as_new.png")
+	I_NEW = RuleImage(roi_front=(1004,192,65,52), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/ActivityShikigami/as/as_new.png")
 
 
 	# Ocr Rule Assets
@@ -83,7 +83,7 @@ class ActivityShikigamiAssets:
 	O_REMAIN_BUY = RuleOcr(roi=(808,531,39,42), area=(808,531,39,42), mode="DigitCounter", method="Default", keyword="", name="remain_buy")
 	# 活动票数（没有百分比） 
 	O_REMAIN_AP_ACTIVITY2 = RuleOcr(roi=(534,18,71,29), area=(534,18,71,29), mode="Digit", method="Default", keyword="", name="remain_ap_activity2")
-	# Ocr-description
+	# Ocr-description 
 	O_ENTRY_ACTIVITY = RuleOcr(roi=(71,241,98,32), area=(71,241,98,32), mode="Single", method="Default", keyword="阵练演武", name="entry_activity")
 
 
