@@ -113,7 +113,9 @@ class RichManAssets:
 	# 三星白蛋 
 	I_HONOR_WHITE = RuleImage(roi_front=(424,399,100,100), roi_back=(155,127,841,388), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_white.png")
 	# 判断是否滑动到底 
-	I_HONOR_SWIPE_CHECK = RuleImage(roi_front=(387,387,82,64), roi_back=(130,380,862,113), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_swipe_check.png")
+	I_HONOR_SWIPE_CHECK = RuleImage(roi_front=(223,347,53,28), roi_back=(110,321,1002,248), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_swipe_check.png")
+	# description 
+	I_HONOR_SWIPE_CHECK_2 = RuleImage(roi_front=(907,452,64,54), roi_back=(907,452,64,54), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_swipe_check_2.png")
 
 
 	# Ocr Rule Assets

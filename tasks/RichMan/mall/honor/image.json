@@ -29,10 +29,19 @@
   {
     "itemName": "honor_swipe_check",
     "imageName": "honor_honor_swipe_check.png",
-    "roiFront": "387,387,82,64",
-    "roiBack": "130,380,862,113",
+    "roiFront": "223,347,53,28",
+    "roiBack": "110,321,1002,248",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "判断是否滑动到底"
+  },
+  {
+    "itemName": "honor_swipe_check_2",
+    "imageName": "honor_honor_swipe_check_2.png",
+    "roiFront": "865,345,115,102",
+    "roiBack": "865,345,115,102",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "description"
   }
 ]
