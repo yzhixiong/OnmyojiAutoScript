@@ -18,7 +18,7 @@ from module.logger import logger
 from module.exception import TaskEnd
 from module.atom.image import RuleImage
 from typing import List
-
+from datetime import datetime
 
 class ScriptTask(GeneralBattle, GameUi, SwitchSoul, AreaBossAssets):
 
@@ -27,6 +27,19 @@ class ScriptTask(GeneralBattle, GameUi, SwitchSoul, AreaBossAssets):
         运行脚本
         :return:
         """
+        # 获取当前时间
+        current_hour = datetime.now().hour
+
+        # 判断时间是否在6-26点之间
+        if current_hour < 6:
+            logger.info("Not within the executable time frame: 6-24")
+            # 退出
+            self.go_back()
+            self.set_next_run(task='AreaBoss', success=True, finish=False)
+
+            # 以抛出异常的形式结束
+            raise TaskEnd
+
         # 直接手动关闭这个锁定阵容的设置
         self.config.area_boss.general_battle.lock_team_enable = False
         con = self.config.area_boss.boss
