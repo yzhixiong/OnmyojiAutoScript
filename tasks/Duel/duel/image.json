@@ -169,5 +169,14 @@
     "method": "Template matching",
     "threshold": 0.8,
     "description": "活动的战斗按钮"
+  },
+  {
+    "itemName": "d_practice",
+    "imageName": "duel_d_practice.png",
+    "roiFront": "1161,578,56,58",
+    "roiBack": "1161,578,56,58",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "练习"
   }
 ]

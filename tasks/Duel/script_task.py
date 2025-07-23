@@ -33,6 +33,9 @@ class ScriptTask(GameUi, GeneralBattle, DuelAssets):
                 continue
             if not self.duel_main():
                 continue
+            if self.appear(self.I_D_PRACTICE):
+                logger.info('Exit! Because of the practice')
+                break
 
             if datetime.now() - self.start_time >= self.limit_time:
                 # 任务执行时间超过限制时间，退出
