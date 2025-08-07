@@ -112,10 +112,10 @@ class RichManAssets:
 	I_HONOR_BLACK = RuleImage(roi_front=(615,309,149,104), roi_back=(148,71,1011,549), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_black.png")
 	# 三星白蛋 
 	I_HONOR_WHITE = RuleImage(roi_front=(424,399,100,100), roi_back=(155,127,841,388), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_white.png")
-	# 判断是否滑动到底
+	# 判断是否滑动到底 
 	I_HONOR_SWIPE_CHECK = RuleImage(roi_front=(223,347,53,28), roi_back=(110,321,1002,248), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_swipe_check.png")
-	# description
-	I_HONOR_SWIPE_CHECK_2 = RuleImage(roi_front=(907,452,64,54), roi_back=(907,452,64,54), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_swipe_check_2.png")
+	# description 
+	I_HONOR_SWIPE_CHECK_2 = RuleImage(roi_front=(865,345,115,102), roi_back=(865,345,115,102), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_swipe_check_2.png")
 
 
 	# Ocr Rule Assets
@@ -128,7 +128,7 @@ class RichManAssets:
 
 
 	# Swipe Rule Assets
-	# 向下滑动
+	# 向下滑动 
 	S_HONOR_DOWN = RuleSwipe(roi_front=(249,419,486,22), roi_back=(339,300,301,22), mode="default", name="honor_down")
 
 
@@ -350,7 +350,7 @@ class RichManAssets:
 	I_CENTER1 = RuleImage(roi_front=(1101,621,48,51), roi_back=(1072,596,100,100), threshold=0.8, method="Template matching", file="./tasks/RichMan/shrine/shrine_center1.png")
 	# description 
 	I_CENTER2 = RuleImage(roi_front=(76,590,79,75), roi_back=(65,575,100,100), threshold=0.8, method="Template matching", file="./tasks/RichMan/shrine/shrine_center2.png")
-	# 返魂
+	# 返魂 
 	I_S_BACK_SOUL = RuleImage(roi_front=(1166,435,58,26), roi_back=(1166,435,58,26), threshold=0.8, method="Template matching", file="./tasks/RichMan/shrine/shrine_s_back_soul.png")
 
 
