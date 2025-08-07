@@ -112,9 +112,9 @@ class RichManAssets:
 	I_HONOR_BLACK = RuleImage(roi_front=(615,309,149,104), roi_back=(148,71,1011,549), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_black.png")
 	# 三星白蛋 
 	I_HONOR_WHITE = RuleImage(roi_front=(424,399,100,100), roi_back=(155,127,841,388), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_white.png")
-	# 判断是否滑动到底 
+	# 判断是否滑动到底
 	I_HONOR_SWIPE_CHECK = RuleImage(roi_front=(223,347,53,28), roi_back=(110,321,1002,248), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_swipe_check.png")
-	# description 
+	# description
 	I_HONOR_SWIPE_CHECK_2 = RuleImage(roi_front=(907,452,64,54), roi_back=(907,452,64,54), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/honor/honor_honor_swipe_check_2.png")
 
 
@@ -128,7 +128,7 @@ class RichManAssets:
 
 
 	# Swipe Rule Assets
-	# 向下滑动 
+	# 向下滑动
 	S_HONOR_DOWN = RuleSwipe(roi_front=(249,419,486,22), roi_back=(339,300,301,22), mode="default", name="honor_down")
 
 
@@ -192,15 +192,15 @@ class RichManAssets:
 	# 荣誉 
 	I_SIDE_CHECK_HONOR = RuleImage(roi_front=(694,12,41,42), roi_back=(694,12,41,42), threshold=0.7, method="Template matching", file="./tasks/RichMan/mall/navbar/navbar_side_check_honor.png")
 	# 友情点 
-	I_SIDE_SURE_FRIENDS = RuleImage(roi_front=(1190,287,43,52), roi_back=(1163,258,93,109), threshold=0.7, method="Template matching", file="./tasks/RichMan/mall/navbar/navbar_side_sure_friends.png")
+	I_SIDE_SURE_FRIENDS = RuleImage(roi_front=(1190,287,43,52), roi_back=(1163,258,93,126), threshold=0.7, method="Template matching", file="./tasks/RichMan/mall/navbar/navbar_side_sure_friends.png")
 	# 友情点 
 	I_SIDE_CHECK_FRIENDS = RuleImage(roi_front=(890,8,39,43), roi_back=(890,8,39,43), threshold=0.7, method="Template matching", file="./tasks/RichMan/mall/navbar/navbar_side_check_friends.png")
 	# 勋章 
-	I_SIDE_SURE_MEDAL = RuleImage(roi_front=(1190,375,39,62), roi_back=(1156,352,99,113), threshold=0.7, method="Template matching", file="./tasks/RichMan/mall/navbar/navbar_side_sure_medal.png")
+	I_SIDE_SURE_MEDAL = RuleImage(roi_front=(1190,404,39,62), roi_back=(1156,352,112,128), threshold=0.7, method="Template matching", file="./tasks/RichMan/mall/navbar/navbar_side_sure_medal.png")
 	# 勋章 
 	I_SIDE_CHECK_MEDAL = RuleImage(roi_front=(665,6,40,44), roi_back=(453,1,476,58), threshold=0.7, method="Template matching", file="./tasks/RichMan/mall/navbar/navbar_side_check_medal.png")
 	# 魅力值 
-	I_SIDE_SURE_CHARISMA = RuleImage(roi_front=(1181,467,59,58), roi_back=(1158,445,101,143), threshold=0.7, method="Template matching", file="./tasks/RichMan/mall/navbar/navbar_side_sure_charisma.png")
+	I_SIDE_SURE_CHARISMA = RuleImage(roi_front=(1181,467,59,58), roi_back=(1158,445,101,142), threshold=0.7, method="Template matching", file="./tasks/RichMan/mall/navbar/navbar_side_sure_charisma.png")
 	# 魅力值 
 	I_SIDE_CHECK_CHARISMA = RuleImage(roi_front=(886,4,48,46), roi_back=(886,4,48,46), threshold=0.7, method="Template matching", file="./tasks/RichMan/mall/navbar/navbar_side_check_charisma.png")
 
@@ -350,7 +350,7 @@ class RichManAssets:
 	I_CENTER1 = RuleImage(roi_front=(1101,621,48,51), roi_back=(1072,596,100,100), threshold=0.8, method="Template matching", file="./tasks/RichMan/shrine/shrine_center1.png")
 	# description 
 	I_CENTER2 = RuleImage(roi_front=(76,590,79,75), roi_back=(65,575,100,100), threshold=0.8, method="Template matching", file="./tasks/RichMan/shrine/shrine_center2.png")
-	# 返魂 
+	# 返魂
 	I_S_BACK_SOUL = RuleImage(roi_front=(1166,435,58,26), roi_back=(1166,435,58,26), threshold=0.8, method="Template matching", file="./tasks/RichMan/shrine/shrine_s_back_soul.png")
 
 
