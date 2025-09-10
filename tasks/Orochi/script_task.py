@@ -79,8 +79,6 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
 
         raise TaskEnd
 
-
-
     def orochi_enter(self) -> bool:
         logger.info('Enter orochi')
         while True:

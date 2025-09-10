@@ -94,6 +94,7 @@ class DuelAssets:
 	I_D_PRACTICE = RuleImage(roi_front=(1161,578,56,58), roi_back=(1161,578,56,58), threshold=0.8, method="Template matching", file="./tasks/Duel/duel/duel_d_practice.png")
 
 
+
 	# Ocr Rule Assets
 	# 荣誉 
 	O_D_HONOR = RuleOcr(roi=(699,562,131,31), area=(699,562,131,31), mode="DigitCounter", method="Default", keyword="", name="d_honor")
