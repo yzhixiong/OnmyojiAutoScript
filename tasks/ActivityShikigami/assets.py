@@ -32,15 +32,15 @@ class ActivityShikigamiAssets:
 
 	# Click Rule Assets
 	# description 
-	C_RANDOM_LEFT = RuleClick(roi_front=(21,23,237,599), roi_back=(21,23,237,599), name="random_left")
+	C_RANDOM_LEFT = RuleClick(roi_front=(21,64,203,490), roi_back=(21,64,203,490), name="random_left")
 	# description 
-	C_RANDOM_RIGHT = RuleClick(roi_front=(1047,55,218,638), roi_back=(1047,55,218,638), name="random_right")
+	C_RANDOM_RIGHT = RuleClick(roi_front=(1047,55,158,532), roi_back=(1047,55,158,532), name="random_right")
 	# description 
-	C_RANDOM_TOP = RuleClick(roi_front=(85,46,1159,101), roi_back=(85,46,1159,101), name="random_top")
+	C_RANDOM_TOP = RuleClick(roi_front=(85,46,1153,67), roi_back=(85,46,1153,67), name="random_top")
 	# description 
 	C_RANDOM_BOTTOM = RuleClick(roi_front=(182,539,1063,100), roi_back=(182,539,1063,100), name="random_bottom")
 	# description 
-	C_RANDOM_ALL = RuleClick(roi_front=(42,94,1207,543), roi_back=(42,94,1207,543), name="random_all")
+	C_RANDOM_ALL = RuleClick(roi_front=(42,94,1179,543), roi_back=(42,94,1179,543), name="random_all")
 
 
 	# Image Rule Assets
