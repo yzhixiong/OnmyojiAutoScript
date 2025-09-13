@@ -42,8 +42,9 @@ class ScriptTask(GameUi, BaseActivity, SwitchSoul, ActivityShikigamiAssets):
                 config.switch_soul_config.team_name
             )
 
-        self.ui_get_current_page()
-        self.ui_goto(page_main)
+        if not self.appear(self.I_FIRE):
+            self.ui_get_current_page()
+            self.ui_goto(page_main)
 
         # 某些活动需要开启御魂加成
         # self.open_buff()
@@ -124,6 +125,9 @@ class ScriptTask(GameUi, BaseActivity, SwitchSoul, ActivityShikigamiAssets):
                     continue
                 if self.appear_then_click(self.I_N_CONFIRM, interval=1):
                     continue
+
+            if self.appear(self.I_FIRE):
+                logger.info("I_FIREI_FIREI_FIRE")
 
             if self.run_general_battle(config=config.general_battle):
                 logger.info("General battle success")
@@ -264,10 +268,16 @@ class ScriptTask(GameUi, BaseActivity, SwitchSoul, ActivityShikigamiAssets):
         click_count = 0
         while 1:
             self.screenshot()
+            if self.appear(self.I_FIRE):
+                # 结算 -> 刚好随机滑动 -> 结束了战斗
+                break
             # 如果出现了 “获得奖励”
             reward_click = random.choice([self.C_RANDOM_LEFT, self.C_RANDOM_RIGHT, self.C_RANDOM_TOP, self.C_RANDOM_BOTTOM])
             if self.appear_then_click(self.I_UI_REWARD, action=reward_click, interval=1.3):
                 click_count += 1
+                continue
+            if self.appear(self.I_UI_REWARD):
+                # interval导致跳过click
                 continue
             # 如果出现了 “鼓”
             if self.appear(self.I_WIN) or click_count >= 1:
