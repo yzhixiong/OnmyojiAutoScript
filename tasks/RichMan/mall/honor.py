@@ -85,7 +85,7 @@ class Honor(Special):
             logger.warning('No enough money')
             return
         # 使用动态位置点击购买
-        self.appear_then_click(self.I_HONOR_BLUE)
+        self.buy_more(self.I_HONOR_BLUE)
         time.sleep(1)
 
     def _honor_black_daruma_scrap(self, enable: bool=False):
