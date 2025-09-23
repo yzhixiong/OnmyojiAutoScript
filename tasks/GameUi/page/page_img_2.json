@@ -2,8 +2,8 @@
   {
     "itemName": "main_goto_town",
     "imageName": "page_main_goto_town.png",
-    "roiFront": "737,289,34,21",
-    "roiBack": "737,289,34,21",
+    "roiFront": "706,249,61,57",
+    "roiBack": "200,120,951,298",
     "method": "Template matching",
     "threshold": 0.6,
     "description": "description"
